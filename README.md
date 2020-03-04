@@ -16,6 +16,6 @@ This application is being developed for our Honors: Intro to Computer Science II
 
 ## Contributors
 
-*Holden Dalton* - daltonh@etsu.edu
-*Shay Snyder* - snyderse2@etsu.edu
-*Hannah Taylor* - taylorhm1@mail.etsu.edu
+- *Holden Dalton* - daltonh@etsu.edu
+- *Shay Snyder* - snyderse2@etsu.edu
+- *Hannah Taylor* - taylorhm1@mail.etsu.edu
