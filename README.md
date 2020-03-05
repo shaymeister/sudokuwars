@@ -1,4 +1,4 @@
-# Sudoku
+# Colossus
 Andriod / Windows Sudoku Game programmed in Java
 
 ## Introduction
