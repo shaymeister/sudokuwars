@@ -35,7 +35,7 @@ development of this project.
 
 ### Images
 
-- [WallpapaerAccess](https://wallpaperaccess.com/star-wars)
+- [WallpaperAccess](https://wallpaperaccess.com/star-wars)
 - [Wallpaper Flare](https://www.wallpaperflare.com/search?wallpaper=star+wars)
 
 ---
@@ -54,3 +54,4 @@ development of this project.
 - Star Wars Font Generator [link](https://www.dafont.com/star-jedi.font)
 - Libgdx [link](https://libgdx.badlogicgames.com/)
 - Learning Libgdx Game Development [link](https://learning.oreilly.com/library/view/learning-libgdx-game/9781782166047/)
+- Star Wars Icons can be accessed [here](https://icons8.com/icons/set/star-wars)
