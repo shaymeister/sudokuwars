@@ -12,7 +12,7 @@
  * ---------------------------------------------------------------------------
  */
 
-package sudoku;
+package sudokuwars.src.sudoku;
 
 /**
  * Manage and control the audio

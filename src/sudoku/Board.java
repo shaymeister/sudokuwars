@@ -15,6 +15,7 @@
 package sudoku;
 
 import java.util.Calendar;
+import java.util.Random;
 
 /**
  * Represent and control the sudoku playing surface

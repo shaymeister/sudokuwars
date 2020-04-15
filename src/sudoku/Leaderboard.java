@@ -14,6 +14,9 @@
 
 package sudoku;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * Contain an manage all previous boards
  *
