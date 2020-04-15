@@ -33,6 +33,8 @@ public class Settings
     private int melodyVolume;
     private int screenHeight;
     private int screenWidth;
+    private String pathIconImage;
+    private String title;
 
     /**
 	 * initialize the Settings class to the default values
@@ -42,121 +44,163 @@ public class Settings
 	 */
     public Settings()
     {
-        // TODO FINISH IMPLEMENTATION
+        // set the initial values for all settings
+        this.masterVolume = 100;
+        this.effectsVolume = 100;
+        this.melodyVolume = 100;
+        this.screenWidth = 250;
+        this.screenHeight = 250;
+        this.pathIconImage = "backgrounds/star_wars_logo.jpg";
+        this.title = "SudokuWars";
     } // END: Settings() no-arg constructor
 
     /**
-	 * TODO Finish Documentation
+	 * set the 'masterVolume' integer attribute to the
+     * argued value; in other words, this changes the
+     * max volume of the game's sounds to the argued
+     * value
      *
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
-    public void setMasterVolume()
+    public void setMasterVolume(int volume)
     {
-        // TODO FINISH IMPLEMENTATION
+        /*
+         * set the 'masterVolume' integer attribute
+         * to the argued value
+         */
+        this.masterVolume = volume;
     } // END: setMasterVolume() method
 
     /**
-	 * TODO Finish Documentation
+	 * set the 'effectVolume' integer attribute to the
+     * argued value; in other words, this changes the
+     * volume of the game's effects to the argued
+     * value
      *
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
-    public void setEffectsVolume()
+    public void setEffectsVolume(int volume)
     {
-        // TODO FINISH IMPLEMENTATION
+        /*
+         * set the 'effectsVolume' integer attribute
+         * to the argued value
+         */
+        this.effectsVolume = volume;
     } // END: setEffectsVolume() method
 
     /**
-	 * TODO Finish Documentation
+	 * set the 'melodyVolume' integer attribute to the
+     * argued value; in other words, this changes the
+     * volume of the game's melodies to the argued
+     * value
      *
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
-    public void setMelodyVolume()
+    public void setMelodyVolume(int volume)
     {
-        // TODO FINISH IMPLEMENTATION
+        /*
+         * set the 'melodyVolume' integer attribute
+         * to the argued value
+         */
+        this.melodyVolume = volume;
     } // END: setMelodyVolume() method
 
     /**
-	 * TODO Finish Documentation
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public void setScreenHeight()
-    {
-        // TODO FINISH IMPLEMENTATION
-    } // END: setScreenHeight() method
-
-    /**
-	 * TODO Finish Documentation
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public void setScreenWidth()
-    {
-        // TODO FINISH IMPLEMENTATION
-    } // END: setScreenWidth() method
-
-    /**
-	 * TODO Finish Documentation
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public int getMasterVolume()
-    {
-        // TODO FINISH IMPLEMENTATION
-        return 0;
-    } // END: getMasterVolume() method
-
-    /**
-	 * TODO Finish Documentation
+	 * return the integer value that represents the
+     * desired volume for the game's effects
      *
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
     public int getEffectsVolume()
     {
-        // TODO FINISH IMPLEMENTATION
-        return 0;
+        /*
+         * return the integer value that represents the
+         * desired volume for the game's effects
+         */
+        return this.effectsVolume;
     } // END: getEffectsVolume() method
 
     /**
-	 * TODO Finish Documentation
+	 * return the integer value that represents the
+     * desired volume for the game's melodies
      *
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
     public int getMelodyVolume()
     {
-        // TODO FINISH IMPLEMENTATION
-        return 0;
+        /*
+         * return the integer valie that represents the
+         * desired volume for the game's melodies
+         */
+        return this.melodyVolume;
     } // END: getMasterVolume() method
 
     /**
-	 * TODO Finish Documentation
+	 * return the integer value that represents the
+     * desired height for the JFrame
      *
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
     public int getScreenHeight()
     {
-        // TODO FINISH IMPLEMENTATION
-        return 0;
+        /*
+         * return the integer value that represents the
+         * desired height for the JFrame
+         */
+        return this.screenHeight;
     } // END: getScreenHeight() method
 
     /**
-	 * TODO Finish Documentation
+	 * return the integer value that represents the
+     * desired width for the JFrame
      *
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
     public int getScreenWidth()
     {
-        // TODO FINISH IMPLEMENTATION
-        return 0;
+        /*
+         * return the integer value that represents the
+         * desired width of the JFrame
+         */
+        return this.screenWidth;
     } // END: getScreenWidth() method
+
+    /**
+	 * return the String attribute which represents the path to the desired
+     * image for the SudokuWars icon image
+     *
+	 * <hr>
+	 * Date created: April 13, 2020
+	 */
+    public String getPathIconImage()
+    {
+        /*
+         * return the String attribute which represents the path to the desired
+         * image for the SudokuWars icon image
+         */
+        return this.pathIconImage;
+    } // END: getPathIconImage() method
+
+    /**
+	 * return the String attribute which represents the
+     * desired title for the SudokuWars JFrame
+     *
+	 * <hr>
+	 * Date created: April 13, 2020
+	 */
+    public String getTitle()
+    {
+        /*
+         * return the String attribute which represents the
+         * desired title for the SudokuWars JFrame
+         */
+        return this.title;
+    } // END: getTitle() method
 } // END: Settings() class

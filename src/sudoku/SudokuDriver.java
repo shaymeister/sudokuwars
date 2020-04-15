@@ -14,6 +14,10 @@
 
 package sudoku;
 
+import java.awt.Toolkit;
+import java.awt.Image;
+import javax.swing.JFrame;
+
 /**
  * Driver our CSCI 1260-288 capstone project: SudokuWars
  *
@@ -35,7 +39,7 @@ public class SudokuDriver
 	 */
     public static void main(String[] args)
     {
-        // TODO Finish Implementation
+        SudokuGUI menu = new SudokuGUI();
     } // END: main() method
 
     /**
@@ -72,7 +76,8 @@ public class SudokuDriver
     } // END: help() method
 
     /**
-	 * TODO Finish Documentation
+	 * introduce the player to SudokuWars and ask them if they
+     * need to learn how to play sudoku
      *
 	 * <hr>
 	 * Date created: April 13, 2020
