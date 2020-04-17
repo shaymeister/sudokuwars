@@ -61,8 +61,10 @@ public class SudokuGUI extends JFrame
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         
+        implementBackgroundImage();
         implementIconImage();
         implementMenuBar();
+
 
         this.setVisible(true);
     } // END: Menu() no-arg constructor
@@ -92,11 +94,25 @@ public class SudokuGUI extends JFrame
     {
         try // attempt to set ImageIcon
         {
-            this.setContentPane(new JLabel(new ImageIcon(settings.getPathBackgroundImage())));
+            this.setIconImage(new ImageIcon(settings.getPathIconImage()).getImage());;
         } // END: attempting to set ImageIcon
         catch (Exception e) // catch any errors
         {
             System.out.println("The ImageIcom was unable to be added.");
         } // END: error catching
     } // END: implementIconImage()
+
+    /**
+	 * add a background image to the JFrame; this method 
+     * will check for any errors that could arise
+     * during the process; if any error arises, an
+     * exception will be thrown
+     *
+	 * <hr>
+	 * Date created: April 13, 2020
+	 */
+    private void implementBackgroundImage()
+    {
+        this.setContentPane(new JLabel(new ImageIcon(settings.getPathBackgroundImage())));
+    } // END: implementBackgroundImage() method
 } // END: Menu class
