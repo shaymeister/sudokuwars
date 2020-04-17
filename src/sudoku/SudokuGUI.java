@@ -14,14 +14,14 @@
 
 package sudoku;
 
-import java.io.File;
-import java.awt.image.BufferedImage;
+import java.awt.event.KeyEvent;
 
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
  * TODO Finish Documentation
@@ -36,11 +36,21 @@ import javax.swing.JMenuBar;
  */
 public class SudokuGUI extends JFrame
 {
-    // global variables
-    private Settings settings; // to hold the game's various settings
-    private ImageIcon background; // to hold the frame's backgroung
-    private JMenuBar menuBar; // to hold the frame's menuBar
+    private static final long serialVersionUID = -2988809562466920476L; // Generated ID
 
+    // global variables -------------------------------------------------------
+    // Class Instantiation
+    private Settings settings; // to hold the game's various settings
+
+    // Menu Variables
+    private JMenuBar menuBar; // to hold the frame's menuBar
+    private JMenu gameMenu; // to hold the game menu
+    private JMenu helpMenu; // to hold the help menu
+    private JMenu leaderBoardMenu; // to hold the leaderboard menu
+
+    // Misc Variables
+    private ImageIcon background; // to hold the frame's background
+    // END: Global Variables --------------------------------------------------
     /**
 	 * TODO Finish Documentation
      *
@@ -65,12 +75,11 @@ public class SudokuGUI extends JFrame
         implementIconImage();
         implementMenuBar();
 
-
         this.setVisible(true);
     } // END: Menu() no-arg constructor
 
     /**
-	 * TODO Finish Documentation
+	 * create and manage the game's menu bar
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -78,8 +87,64 @@ public class SudokuGUI extends JFrame
     private void implementMenuBar()
     {
         // TODO Finish Implementation
-       menuBar = new JMenuBar();
+        // instantiate the JMenuBar
+        menuBar = new JMenuBar();
+
+        // build the various menus
+        buildGameMenu();
+        buildLeaderBoardMenu();
+        buildHelpMenu();
+
+        this.setJMenuBar(menuBar);
+        // add the items
+
     } // END: implementMenuBar()
+
+    /**
+	 * TODO Finish Documentation 
+     *
+	 * <hr>
+	 * Date created: April 13, 2020
+	 */
+    private void buildGameMenu()
+    {
+        // instantiate the game menu
+        gameMenu = new JMenu("Game");
+
+        // open the game menu when the user presses 'g'
+        gameMenu.setMnemonic(KeyEvent.VK_G);
+
+        // create the various menu options
+        JMenuItem newGame = new JMenuItem("New Game");
+        JMenuItem continueGame = new JMenuItem("Continue Game");
+        JMenuItem saveGame = new JMenuItem("Save Game");
+        JMenuItem saveGameAs = new JMenuItem("Save Game As");
+        JMenuItem settingsMenu = new JMenuItem("Settings");
+        
+
+    } // END: buildGameMenu() method
+
+    /**
+	 * TODO Finish Documentation 
+     *
+	 * <hr>
+	 * Date created: April 16, 2020
+	 */
+    private void buildLeaderBoardMenu()
+    {
+        // TODO Finish Implementation
+    } // END: buildLeaderBoardMenu() method
+
+    /**
+	 * TODO Finish Documentation 
+     *
+	 * <hr>
+	 * Date created: April 16, 2020
+	 */
+    private void buildHelpMenu()
+    {
+        // TODO Finish Implementation
+    } // END: buildLeaderBoardMenu() method
 
     /**
 	 * add an Icon Image to the JFrame; this method 
@@ -98,7 +163,7 @@ public class SudokuGUI extends JFrame
         } // END: attempting to set ImageIcon
         catch (Exception e) // catch any errors
         {
-            System.out.println("The ImageIcom was unable to be added.");
+            System.out.println("The ImageIcon was unable to be added.");
         } // END: error catching
     } // END: implementIconImage()
 
@@ -113,6 +178,7 @@ public class SudokuGUI extends JFrame
 	 */
     private void implementBackgroundImage()
     {
+        // set the background image
         this.setContentPane(new JLabel(new ImageIcon(settings.getPathBackgroundImage())));
     } // END: implementBackgroundImage() method
 } // END: Menu class
