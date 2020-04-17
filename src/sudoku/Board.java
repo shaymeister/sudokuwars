@@ -74,6 +74,7 @@ public class Board
     public boolean isMoveAvailable(String move)
     {
         // TODO FINISH IMPLEMENTATION
+        return false; // remove later
     } // END: isMoveAvailable() method
 
     /**
@@ -96,6 +97,7 @@ public class Board
     public String displayBoard(String move)
     {
         // TODO FINISH IMPLEMENTATION
+        return ""; //! change later
     } // END: displayBoard() method
 
     /**
@@ -107,6 +109,7 @@ public class Board
     public int comparePlayer(Board otherBoard)
     {
         // TODO FINISH IMPLEMENTATION
+        return 0; //! change later
     } // END: comparePlayer() method
 
     /**
@@ -118,6 +121,7 @@ public class Board
     public int compareDifficulty(Board otherBoard)
     {
         // TODO FINISH IMPLEMENTATION
+        return 0; //! change later
     } // END: compareDifficulty() method
 
     /**
@@ -129,6 +133,7 @@ public class Board
     public int compareTime(Board otherBoard)
     {
         // TODO FINISH IMPLEMENTATION
+        return 0; //! change later
     } // END: compareTime() method
 
     /**
@@ -140,6 +145,7 @@ public class Board
     public int compareScore(Board otherBoard)
     {
         // TODO FINISH IMPLEMENTATION
+        return 0; //! change later
     } // END: compareScore() method
 
     /**
@@ -151,6 +157,7 @@ public class Board
     public int compareMoves(Board otherBoard)
     {
         // TODO FINISH IMPLEMENTATION
+        return 0; //! change later
     } // END: compareMoves() method
 
     /**

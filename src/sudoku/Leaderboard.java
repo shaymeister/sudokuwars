@@ -120,6 +120,7 @@ public class Leaderboard
     public ArrayList<Board> searchByPlayer()
     {
         // TODO FINISH IMPLEMENTATION
+        return null; //! change later
     } // END: searchByPlayer() method
 
     /**
@@ -131,6 +132,7 @@ public class Leaderboard
     public ArrayList<Board> searchByDifficulty()
     {
         // TODO FINISH IMPLEMENTATION
+        return null; //! change later
     } // END: searchByDifficulty() method
 
     /**
@@ -142,6 +144,7 @@ public class Leaderboard
     public ArrayList<Board> searchByTime()
     {
         // TODO FINISH IMPLEMENTATION
+        return null; //! change later
     } // END: searchByTime() method
 
     /**
@@ -153,6 +156,7 @@ public class Leaderboard
     public ArrayList<Board> searchByScore()
     {
         // TODO FINISH IMPLEMENTATION
+        return null; //! change later
     } // END: searchByScore() method
 
     /**
@@ -164,6 +168,7 @@ public class Leaderboard
     public ArrayList<Board> searchByMoves()
     {
         // TODO FINISH IMPLEMENTATION
+        return null; //! change later
     } // END: searchByMoves() method
 
     /**

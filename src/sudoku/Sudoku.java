@@ -39,7 +39,7 @@ public class Sudoku
 	 */
     public Sudoku()
     {
-
+        // TODO Finish Implementation
     } // END: Sudoku() constructor
 
     /**
@@ -50,7 +50,8 @@ public class Sudoku
 	 */
     public String showBoard()
     {
-
+        // TODO Finish Implementation
+        return null; //! change later
     } // END: showBoard() method
 
     /**
@@ -61,7 +62,8 @@ public class Sudoku
 	 */
     public String showLeaderboard()
     {
-
+        // todo finish implementation
+        return null; //! change later
     } // END: showLeaderboard() method
 
     /**
@@ -72,7 +74,8 @@ public class Sudoku
 	 */
     public boolean submitMove()
     {
-
+        // todo finish implementation
+        return false; //! change later
     } // END: submitMove() method
 
     /**

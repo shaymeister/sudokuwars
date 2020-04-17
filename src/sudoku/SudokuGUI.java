@@ -14,8 +14,14 @@
 
 package sudoku;
 
+import java.io.File;
+import java.awt.image.BufferedImage;
+
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenuBar;
 
 /**
  * TODO Finish Documentation
@@ -32,6 +38,8 @@ public class SudokuGUI extends JFrame
 {
     // global variables
     private Settings settings; // to hold the game's various settings
+    private ImageIcon background; // to hold the frame's backgroung
+    private JMenuBar menuBar; // to hold the frame's menuBar
 
     /**
 	 * TODO Finish Documentation
@@ -45,11 +53,50 @@ public class SudokuGUI extends JFrame
 
         // initialize the settings class to the default value
         settings = new Settings();
-
-
+        
         this.setTitle(settings.getTitle());
-        this.setIconImage(new ImageIcon(settings.getPathIconImage()).getImage());
+        
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(settings.getScreenWidth(), settings.getScreenHeight());
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+        
+        implementIconImage();
+        implementMenuBar();
+
         this.setVisible(true);
     } // END: Menu() no-arg constructor
+
+    /**
+	 * TODO Finish Documentation
+     *
+	 * <hr>
+	 * Date created: April 13, 2020
+	 */
+    private void implementMenuBar()
+    {
+        // TODO Finish Implementation
+       menuBar = new JMenuBar();
+    } // END: implementMenuBar()
+
+    /**
+	 * add an Icon Image to the JFrame; this method 
+     * will check for any errors that could arise
+     * during the process; if any error arises, an
+     * exception will be thrown
+     *
+	 * <hr>
+	 * Date created: April 13, 2020
+	 */
+    private void implementIconImage()
+    {
+        try // attempt to set ImageIcon
+        {
+            this.setContentPane(new JLabel(new ImageIcon(settings.getPathBackgroundImage())));
+        } // END: attempting to set ImageIcon
+        catch (Exception e) // catch any errors
+        {
+            System.out.println("The ImageIcom was unable to be added.");
+        } // END: error catching
+    } // END: implementIconImage()
 } // END: Menu class

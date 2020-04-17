@@ -34,6 +34,7 @@ public class Settings
     private int screenHeight;
     private int screenWidth;
     private String pathIconImage;
+    private String pathBackgroundImage;
     private String title;
 
     /**
@@ -48,9 +49,10 @@ public class Settings
         this.masterVolume = 100;
         this.effectsVolume = 100;
         this.melodyVolume = 100;
-        this.screenWidth = 250;
-        this.screenHeight = 250;
+        this.screenWidth = 750;
+        this.screenHeight = 750;
         this.pathIconImage = "backgrounds/star_wars_logo.jpg";
+        this.pathBackgroundImage = "backgrounds/galaxy_1.jpg";
         this.title = "SudokuWars";
     } // END: Settings() no-arg constructor
 
@@ -174,7 +176,7 @@ public class Settings
 
     /**
 	 * return the String attribute which represents the path to the desired
-     * image for the SudokuWars icon image
+     * image for the icon image
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -183,10 +185,26 @@ public class Settings
     {
         /*
          * return the String attribute which represents the path to the desired
-         * image for the SudokuWars icon image
+         * image for the icon image
          */
         return this.pathIconImage;
     } // END: getPathIconImage() method
+
+    /**
+	 * return the String attribute which represents the path to the desired
+     * image for the SudokuWars background
+     *
+	 * <hr>
+	 * Date created: April 13, 2020
+	 */
+    public String getPathBackgroundImage()
+    {
+        /*
+         * return the String attribute which represents the path to the desired
+         * image for the background
+         */
+        return this.pathBackgroundImage;
+    } // END: getPathBackgroundImage
 
     /**
 	 * return the String attribute which represents the
