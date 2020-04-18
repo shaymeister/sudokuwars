@@ -35,6 +35,11 @@ public class Settings
     private int screenWidth;
     private String pathIconImage;
     private String pathBackgroundImage;
+    private String pathContinueGameMenuIcon;
+    private String pathNewGameMenuIcon;
+    private String pathSaveGameMenuIcon;
+    private String pathSaveGameAsMenuIcon;
+    private String pathSettingsMenuIcon;
     private String title;
 
     /**
@@ -51,8 +56,13 @@ public class Settings
         this.melodyVolume = 100;
         this.screenWidth = 750;
         this.screenHeight = 750;
-        this.pathIconImage = "backgrounds/star_wars_logo.jpg";
+        this.pathIconImage = "icons/icons8-yoda-96.png";
         this.pathBackgroundImage = "backgrounds/galaxy_1.jpg";
+        this.pathContinueGameMenuIcon = "icons8-open-archive-64.png";
+        this.pathNewGameMenuIcon = "icons8-new-40.png";
+        this.pathSaveGameMenuIcon = "icons8-save-128.png";
+        this.pathSaveGameAsMenuIcon = "icons8-save-as-64.png";
+        this.pathSettingsMenuIcon = "icons8-settings-80.png";
         this.title = "SudokuWars";
     } // END: Settings() no-arg constructor
 
@@ -221,4 +231,94 @@ public class Settings
          */
         return this.title;
     } // END: getTitle() method
+
+    /**
+	 * return the String attribute which represents the path
+     * to the desired image for the 'New Game' button icon in
+     * the 'game' menu
+     *
+	 * <hr>
+	 * Date created: April 18, 2020
+	 */
+    public String getPathNewGameMenuIcon()
+    {
+        /*
+         * return the String attribute which represents the path
+         * to the desired image for the 'New Game' button icon
+         * in the 'game' menu
+         */
+		return this.pathNewGameMenuIcon;
+	} // END: getPathNewGameMenuIcon() method
+
+    /**
+	 * return the String attribute which represents the path
+     * to the desired image for the 'Continue Game' button
+     * icon in the 'game' menu
+     *
+	 * <hr>
+	 * Date created: April 18, 2020
+	 */
+    public String getPathContinueGameMenuIcon()
+    {
+        /*
+         * return the String attribute which represents the path
+         * to the desired image for the 'Continue Game' button
+         * icon in the 'game' menu
+         */
+		return this.pathContinueGameMenuIcon;
+	} // END: getPathContinueGameMenuIcon() method
+
+    /**
+	 * return the String attribute which represents the path
+     * to the desired image for the 'Save Game' button icon
+     * in the 'game' menu
+     *
+	 * <hr>
+	 * Date created: April 18, 2020
+	 */
+    public String getPathSaveGameMenuIcon()
+    {
+        /*
+         * return the String attribute which represents the path
+         * to the desired image for the 'Save Game' button icon
+         * in the 'game' menu
+         */
+		return this.pathSaveGameMenuIcon;
+	} // END: getPathSaveGameMenuIcon() method
+
+    /**
+	 * return the String attribute which represents the path
+     * to the desired image for the 'Save Game As' button
+     * icon in the 'game' menu
+     *
+	 * <hr>
+	 * Date created: April 18, 2020
+	 */
+    public String getPathSaveGameAsMenuIcon()
+    {
+        /*
+         * return the String attribute which represents the path
+         * to the desired image for the 'Save Game As' button
+         * icon in the 'game' menu
+         */
+		return this.pathSaveGameAsMenuIcon;
+	} // END: getPathSaveGameAsMenuIcon() method
+
+    /**
+	 * return the String attribute which represents the path
+     * to the desired image for the 'Settings' button icon
+     * in the 'game' menu
+     *
+	 * <hr>
+	 * Date created: April 18, 2020
+	 */
+    public String getPathSettingsMenuIcon()
+    {
+        /*
+         * return the String attribute which represents the path
+         * to the desired image for the 'Settings' button icon
+         * in the 'game' menu
+         */
+		return this.pathSettingsMenuIcon;
+	} // END: getPathSettingsMenuIcon() method
 } // END: Settings() class

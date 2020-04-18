@@ -14,10 +14,6 @@
 
 package sudoku;
 
-import java.awt.Toolkit;
-import java.awt.Image;
-import javax.swing.JFrame;
-
 /**
  * Driver our CSCI 1260-288 capstone project: SudokuWars
  *
@@ -41,82 +37,4 @@ public class SudokuDriver
     {
         SudokuGUI menu = new SudokuGUI();
     } // END: main() method
-
-    /**
-	 * TODO Finish Documentation
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    private static void about()
-    {
-
-    } // END: about() method
-
-    /**
-	 * TODO Finish Documentation
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    private static void game()
-    {
-
-    } // END: game() method
-
-    /**
-	 * TODO Finish Documentation
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    private static void help()
-    {
-
-    } // END: help() method
-
-    /**
-	 * introduce the player to SudokuWars and ask them if they
-     * need to learn how to play sudoku
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    private static void intro()
-    {
-        // TODO Finish Implementation
-    } // END: intro() method
-
-    /**
-	 * TODO Finish Documentation
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    private static void leaderboard()
-    {
-
-    } // END: leaderboard() method
-
-    /**
-	 * TODO Finish Documentation
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    private static void options()
-    {
-
-    } // END: options() method
-
-    /**
-	 * TODO Finish Documentation
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    private static void playAgain()
-    {
-
-    } // END: playAgain() method
 } // END: SudokuDriver class

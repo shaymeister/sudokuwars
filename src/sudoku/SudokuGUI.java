@@ -15,6 +15,7 @@
 package sudoku;
 
 import java.awt.event.KeyEvent;
+import java.awt.BorderLayout;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -22,9 +23,11 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
- * TODO Finish Documentation
+ * initialize the graphics for SudokuWars
  *
  * <hr>
  * Date created: April 13, 2020
@@ -51,8 +54,9 @@ public class SudokuGUI extends JFrame
     // Misc Variables
     private ImageIcon background; // to hold the frame's background
     // END: Global Variables --------------------------------------------------
+
     /**
-	 * TODO Finish Documentation
+	 * no-arg constructor for the SudokuGUI class
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -76,8 +80,36 @@ public class SudokuGUI extends JFrame
         implementMenuBar();
 
         this.setVisible(true);
+
+        // show the intro
+        intro();
     } // END: Menu() no-arg constructor
 
+    /**
+     * introduce the user to the game and ask them if they would
+     * like to start a new game or continue the previous game
+     *
+     * <hr>
+     * Date created: April 18, 2020
+     * Last modified: April 18, 2020
+     * <hr>
+     * @author Holden Dalton
+     * @author Shay Snyder
+     * @author Hannah Taylor
+     */
+    private void intro()
+    {
+        /*
+         * Build the required panels to properly show the intro screen:
+         * 'introPanel' will be used to contain the other two panels
+         * 'introUpperPanel' will be used to hold the title of the game
+         * 'introLowerPanel' will be used to hold the buttons
+         */
+        JPanel introPanel = new JPanel(new BorderLayout());
+        JPanel introUpperPanel = new JPanel(new BorderLayout());
+        JPanel introLowerPanel = new JPanel(new BorderLayout());
+
+    } // END: intro() method
     /**
 	 * create and manage the game's menu bar
      *
@@ -86,7 +118,6 @@ public class SudokuGUI extends JFrame
 	 */
     private void implementMenuBar()
     {
-        // TODO Finish Implementation
         // instantiate the JMenuBar
         menuBar = new JMenuBar();
 
@@ -95,13 +126,17 @@ public class SudokuGUI extends JFrame
         buildLeaderBoardMenu();
         buildHelpMenu();
 
-        this.setJMenuBar(menuBar);
-        // add the items
+        // add the various menus
+        menuBar.add(gameMenu);
+        menuBar.add(leaderBoardMenu);
+        menuBar.add(helpMenu);
 
+        // add the game's menu bar
+        this.setJMenuBar(menuBar);
     } // END: implementMenuBar()
 
     /**
-	 * TODO Finish Documentation 
+	 * build the game menu in the menu bar
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -120,12 +155,42 @@ public class SudokuGUI extends JFrame
         JMenuItem saveGame = new JMenuItem("Save Game");
         JMenuItem saveGameAs = new JMenuItem("Save Game As");
         JMenuItem settingsMenu = new JMenuItem("Settings");
-        
 
+        try // attempt to set the icons
+        {
+            newGame.setIcon(new ImageIcon(settings.getPathNewGameMenuIcon()));
+            continueGame.setIcon(new ImageIcon(settings.getPathContinueGameMenuIcon()));
+            saveGame.setIcon(new ImageIcon(settings.getPathSaveGameMenuIcon()));
+            saveGameAs.setIcon(new ImageIcon(settings.getPathSaveGameAsMenuIcon()));
+            settingsMenu.setIcon(new ImageIcon(settings.getPathSettingsMenuIcon()));
+        } // END: attempting to the set icons
+        catch (Exception e) // do the following if an error occurs
+        {
+            // this is the message that will be displayed via JOptionPane and CMD line
+            String errorPrompt = "There was an error importing the icons for the game menu.";
+
+            // use the CMD line to show the error message
+            System.out.println(errorPrompt);
+
+            // use JOptionPane to show the error message
+            JOptionPane.showMessageDialog(null,
+                                          errorPrompt,
+                                          settings.getTitle(),
+                                          JOptionPane.WARNING_MESSAGE);
+        } // END: error catching
+
+        // add all of the menu items to the menu
+        gameMenu.add(newGame);
+        gameMenu.add(continueGame);
+        gameMenu.addSeparator();
+        gameMenu.add(saveGame);
+        gameMenu.add(saveGameAs);
+        gameMenu.addSeparator();
+        gameMenu.add(settingsMenu);
     } // END: buildGameMenu() method
 
     /**
-	 * TODO Finish Documentation 
+	 * build the leaderboard in the menu bar
      *
 	 * <hr>
 	 * Date created: April 16, 2020
@@ -133,10 +198,12 @@ public class SudokuGUI extends JFrame
     private void buildLeaderBoardMenu()
     {
         // TODO Finish Implementation
+        this.leaderBoardMenu = new JMenu("Leaderboard");
+
     } // END: buildLeaderBoardMenu() method
 
     /**
-	 * TODO Finish Documentation 
+	 * build the help menu in the menu bar
      *
 	 * <hr>
 	 * Date created: April 16, 2020
@@ -144,6 +211,7 @@ public class SudokuGUI extends JFrame
     private void buildHelpMenu()
     {
         // TODO Finish Implementation
+        this.helpMenu = new JMenu("Help");
     } // END: buildLeaderBoardMenu() method
 
     /**
