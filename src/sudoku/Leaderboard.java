@@ -46,17 +46,6 @@ public class Leaderboard
     } // END: Leaderboard() no-arg constructor
 
     /**
-	 * arg constructor for the Leaderboard class
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public Leaderboard(String path)
-    {
-        // TODO FINISH IMPLEMENTATION
-    } // END: Leaderboard() arg constructor
-
-    /**
 	 * TODO FINISH DOCUMENTATION
      *
 	 * <hr>

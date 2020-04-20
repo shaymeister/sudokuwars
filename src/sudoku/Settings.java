@@ -28,18 +28,16 @@ package sudoku;
 public class Settings
 {
     // global variables
-    private int masterVolume;
-    private int effectsVolume;
-    private int melodyVolume;
+    private int masterVolume; // to hold the max volume of all sounds
     private int screenHeight;
     private int screenWidth;
     private String pathIconImage;
+    private String pathLogoImage;
     private String pathBackgroundImage;
-    private String pathContinueGameMenuIcon;
-    private String pathNewGameMenuIcon;
+    private String pathHelpMenuIcon;
+    private String pathLeaderboardMenuIcon;
+    private String pathStartGameMenuIcon;
     private String pathSaveGameMenuIcon;
-    private String pathSaveGameAsMenuIcon;
-    private String pathSettingsMenuIcon;
     private String title;
 
     /**
@@ -52,77 +50,22 @@ public class Settings
     {
         // set the initial values for all settings
         this.masterVolume = 100;
-        this.effectsVolume = 100;
-        this.melodyVolume = 100;
         this.screenWidth = 750;
         this.screenHeight = 750;
         this.pathIconImage = "icons/icons8-yoda-96.png";
+        this.pathLogoImage = "icons/logo.png";
         this.pathBackgroundImage = "backgrounds/galaxy_1.jpg";
-        this.pathContinueGameMenuIcon = "icons8-open-archive-64.png";
-        this.pathNewGameMenuIcon = "icons8-new-40.png";
-        this.pathSaveGameMenuIcon = "icons8-save-128.png";
-        this.pathSaveGameAsMenuIcon = "icons8-save-as-64.png";
-        this.pathSettingsMenuIcon = "icons8-settings-80.png";
+        this.pathHelpMenuIcon = "icons/icons8-help.png";
+        this.pathLeaderboardMenuIcon = "icons/icons8-leaderboard.png";
+        this.pathStartGameMenuIcon = "icons/icons8-play.png";
         this.title = "SudokuWars";
     } // END: Settings() no-arg constructor
 
-    /**
-	 * set the 'masterVolume' integer attribute to the
-     * argued value; in other words, this changes the
-     * max volume of the game's sounds to the argued
-     * value
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public void setMasterVolume(int volume)
-    {
-        /*
-         * set the 'masterVolume' integer attribute
-         * to the argued value
-         */
-        this.masterVolume = volume;
-    } // END: setMasterVolume() method
 
-    /**
-	 * set the 'effectVolume' integer attribute to the
-     * argued value; in other words, this changes the
-     * volume of the game's effects to the argued
-     * value
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public void setEffectsVolume(int volume)
-    {
-        /*
-         * set the 'effectsVolume' integer attribute
-         * to the argued value
-         */
-        this.effectsVolume = volume;
-    } // END: setEffectsVolume() method
-
-    /**
-	 * set the 'melodyVolume' integer attribute to the
-     * argued value; in other words, this changes the
-     * volume of the game's melodies to the argued
-     * value
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public void setMelodyVolume(int volume)
-    {
-        /*
-         * set the 'melodyVolume' integer attribute
-         * to the argued value
-         */
-        this.melodyVolume = volume;
-    } // END: setMelodyVolume() method
 
     /**
 	 * return the integer value that represents the
-     * desired volume for the game's effects
+     * desired volume for the game's sounds
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -131,26 +74,11 @@ public class Settings
     {
         /*
          * return the integer value that represents the
-         * desired volume for the game's effects
+         * desired volume for the game's sounds
          */
-        return this.effectsVolume;
+        return this.masterVolume;
     } // END: getEffectsVolume() method
 
-    /**
-	 * return the integer value that represents the
-     * desired volume for the game's melodies
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public int getMelodyVolume()
-    {
-        /*
-         * return the integer valie that represents the
-         * desired volume for the game's melodies
-         */
-        return this.melodyVolume;
-    } // END: getMasterVolume() method
 
     /**
 	 * return the integer value that represents the
@@ -201,6 +129,22 @@ public class Settings
     } // END: getPathIconImage() method
 
     /**
+	 * return the String attribute which represents the path to the game's
+     * logo
+     *
+	 * <hr>
+	 * Date created: April 19, 2020
+	 */
+    public String getPathLogoImage()
+    {
+        /*
+         * return the String attribute which represents the path to the
+         * game's logo
+         */
+        return this.pathLogoImage;
+    } // END: getPathLogoImage() method
+
+    /**
 	 * return the String attribute which represents the path to the desired
      * image for the SudokuWars background
      *
@@ -234,7 +178,7 @@ public class Settings
 
     /**
 	 * return the String attribute which represents the path
-     * to the desired image for the 'New Game' button icon in
+     * to the desired image for the 'Start Game' button icon in
      * the 'game' menu
      *
 	 * <hr>
@@ -244,29 +188,11 @@ public class Settings
     {
         /*
          * return the String attribute which represents the path
-         * to the desired image for the 'New Game' button icon
+         * to the desired image for the 'Start Game' button icon
          * in the 'game' menu
          */
-		return this.pathNewGameMenuIcon;
+		return this.pathStartGameMenuIcon;
 	} // END: getPathNewGameMenuIcon() method
-
-    /**
-	 * return the String attribute which represents the path
-     * to the desired image for the 'Continue Game' button
-     * icon in the 'game' menu
-     *
-	 * <hr>
-	 * Date created: April 18, 2020
-	 */
-    public String getPathContinueGameMenuIcon()
-    {
-        /*
-         * return the String attribute which represents the path
-         * to the desired image for the 'Continue Game' button
-         * icon in the 'game' menu
-         */
-		return this.pathContinueGameMenuIcon;
-	} // END: getPathContinueGameMenuIcon() method
 
     /**
 	 * return the String attribute which represents the path
@@ -288,37 +214,37 @@ public class Settings
 
     /**
 	 * return the String attribute which represents the path
-     * to the desired image for the 'Save Game As' button
-     * icon in the 'game' menu
-     *
-	 * <hr>
-	 * Date created: April 18, 2020
-	 */
-    public String getPathSaveGameAsMenuIcon()
-    {
-        /*
-         * return the String attribute which represents the path
-         * to the desired image for the 'Save Game As' button
-         * icon in the 'game' menu
-         */
-		return this.pathSaveGameAsMenuIcon;
-	} // END: getPathSaveGameAsMenuIcon() method
-
-    /**
-	 * return the String attribute which represents the path
-     * to the desired image for the 'Settings' button icon
+     * to the desired image for the 'Leaderboard' button icon
      * in the 'game' menu
      *
 	 * <hr>
-	 * Date created: April 18, 2020
+     * Date created: April 19, 2020
 	 */
-    public String getPathSettingsMenuIcon()
+    public String getPathLeaderboardMenuIcon() 
+    {
+        /*
+         * return the String attribute which represents the path to the
+         * desired image for the 'Leaderboard' button icon in the 'game'
+         * menu
+         */
+        return this.pathLeaderboardMenuIcon;
+	} // END: getPathLeaderboardMenuIcon() method
+
+    /**
+	 * return the String attribute which represents the path
+     * to the desired image for the 'Help' button icon in
+     * the 'game' menu
+     *
+	 * <hr>
+     * Date created: April 19, 2020
+	 */
+    public String getPathHelpMenuIcon()
     {
         /*
          * return the String attribute which represents the path
-         * to the desired image for the 'Settings' button icon
-         * in the 'game' menu
+         * to the desired image for the 'Help' button in the
+         * 'game' menu
          */
-		return this.pathSettingsMenuIcon;
-	} // END: getPathSettingsMenuIcon() method
+		return this.pathHelpMenuIcon;
+	} // END: getPathHelpMenuIcon()
 } // END: Settings() class
