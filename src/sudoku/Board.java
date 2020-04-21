@@ -34,7 +34,6 @@ public class Board
     private Piece[][] board = new Piece[9][9];
     private Random rnd = new Random();
     private Calendar calendar;
-    private Player player;
     private Difficulty difficulty;
     private String user;
     private boolean complete;
@@ -42,17 +41,6 @@ public class Board
     private long endTime;
     private int numOfMoves;
     private int score;
-
-    /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public void importPreviousGame()
-    {
-        // TODO FINISH IMPLEMENTATION
-    } // END: importPreviousGame() method
 
     /**
 	 * TODO FINISH DOCUMENTATION

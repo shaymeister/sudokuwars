@@ -28,16 +28,15 @@ package sudoku;
 public class Settings
 {
     // global variables
-    private int masterVolume; // to hold the max volume of all sounds
-    private int screenHeight;
-    private int screenWidth;
-    private String pathIconImage;
-    private String pathLogoImage;
-    private String pathBackgroundImage;
-    private String pathHelpMenuIcon;
-    private String pathLeaderboardMenuIcon;
-    private String pathStartGameMenuIcon;
-    private String pathSaveGameMenuIcon;
+    private int masterVolume; // max volume of all sounds
+    private int screenHeight; // height of the frame in pixels
+    private int screenWidth; // width of the frame in pixels
+    private String pathIconImage; // path to icon image
+    private String pathLogoImage; // path to logo image
+    private String pathBackgroundImage; // path to background image
+    private String pathHelpMenuIcon; // path to help menu icon
+    private String pathLeaderboardMenuIcon; // path to leaderboard menu icon
+    private String pathStartGameMenuIcon; // path to start game menu icon
     private String title;
 
     /**
@@ -193,24 +192,6 @@ public class Settings
          */
 		return this.pathStartGameMenuIcon;
 	} // END: getPathNewGameMenuIcon() method
-
-    /**
-	 * return the String attribute which represents the path
-     * to the desired image for the 'Save Game' button icon
-     * in the 'game' menu
-     *
-	 * <hr>
-	 * Date created: April 18, 2020
-	 */
-    public String getPathSaveGameMenuIcon()
-    {
-        /*
-         * return the String attribute which represents the path
-         * to the desired image for the 'Save Game' button icon
-         * in the 'game' menu
-         */
-		return this.pathSaveGameMenuIcon;
-	} // END: getPathSaveGameMenuIcon() method
 
     /**
 	 * return the String attribute which represents the path

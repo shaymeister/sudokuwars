@@ -8,7 +8,7 @@
  * Creator's name and email: Hannah Taylor, hannahm1@mail.etsu.edu
  *
  * Course:  CSCI 1260-288
- * Creation Date: April 13, 2020
+ * Creation Date: April 19, 2020
  * ---------------------------------------------------------------------------
  */
 
@@ -34,12 +34,25 @@ import java.awt.Image;
  */
 public class BgPanel extends JPanel
 {
-    // instantiate the settings class
+    /**
+     * randomly generated
+     */
+    private static final long serialVersionUID = -1255651051877697189L;
+
+    // instantiate the Settings class
     private Settings settings = new Settings();
     
     // import the desired background image
     Image bg = new ImageIcon(settings.getPathBackgroundImage()).getImage();
 
+    /**
+	 * override the paintComponent() method in JPanel,
+     * so we can display a background
+     *
+	 * <hr>
+	 * Date created: April 13, 2020
+	 */
+    @Override
     public void paintComponent(Graphics g)
     {
         g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);

@@ -15,7 +15,7 @@
 package sudoku;
 
 /**
- * TODO Finish Documentation
+ * represent and control the actual game
  *
  * <hr>
  * Date created: April 13, 2020
@@ -32,7 +32,7 @@ public class Sudoku
     private Leaderboard leaderboard; // to hold the game's leaderboard
 
     /**
-	 * TODO Finish Documentation
+	 * initialize the game
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -43,7 +43,7 @@ public class Sudoku
     } // END: Sudoku() constructor
 
     /**
-	 * TODO Finish Documentation
+	 * return a String visualization of the playing surface
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -55,7 +55,7 @@ public class Sudoku
     } // END: showBoard() method
 
     /**
-	 * TODO Finish Documentation
+	 * return a String visualization of the leaderboard
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -67,7 +67,8 @@ public class Sudoku
     } // END: showLeaderboard() method
 
     /**
-	 * TODO Finish Documentation
+	 * submit a move to the board; a boolean attribute
+     * representing the success status of said submission
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -79,7 +80,7 @@ public class Sudoku
     } // END: submitMove() method
 
     /**
-	 * TODO Finish Documentation
+	 * allow the user to choose how to sort the leaderboard
      *
 	 * <hr>
 	 * Date created: April 13, 2020

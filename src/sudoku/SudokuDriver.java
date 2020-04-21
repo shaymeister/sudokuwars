@@ -35,6 +35,7 @@ public class SudokuDriver
 	 */
     public static void main(String[] args)
     {
-        SudokuGUI menu = new SudokuGUI();
+        // start the GUI
+        new SudokuGUI();
     } // END: main() method
 } // END: SudokuDriver class
