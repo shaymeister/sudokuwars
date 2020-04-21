@@ -36,24 +36,33 @@ public class GameMenu extends JMenu
      */
     private static final long serialVersionUID = -6289431882773237625L;
 
+    /**
+     * arg constructor for the GameMenu class
+     *
+     * <hr>
+     * Date created: April 20, 2020
+     */
     public GameMenu(JFrame window, Settings settings)
     {
-    // instantiate the game menu
-    new JMenu("Game");
+        // instantiate the game menu
+        new JMenu();
+
+        // set the title of the menu
+        this.setText("Game");
     
-    // add the new game menu item
-    this.add(new NewGameMenuItem(window, settings));
+        // add the new game menu item
+        this.add(new NewGameMenuItem(window, settings));
 
-    // add a separator
-    this.addSeparator();
+        // add a separator
+        this.addSeparator();
 
-    // add the leaderboard menu item
-    this.add(new LeaderboardMenuItem(window, settings));
+        // add the leaderboard menu item
+        this.add(new LeaderboardMenuItem(window, settings));
 
-    // add a separator
-    this.addSeparator();
+        // add a separator
+        this.addSeparator();
 
-    // add the help menu item
-    this.add(new HelpMenuItem(window, settings));
+        // add the help menu item
+        this.add(new HelpMenuItem(window, settings));
     } // END: GameMenu() arg-constructor
 } // END: GameMenu class

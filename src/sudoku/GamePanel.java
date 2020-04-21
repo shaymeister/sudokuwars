@@ -43,6 +43,7 @@ public class GamePanel extends JPanel
     // Global Variables
     private JFrame window; // to hold the game's main window
     private Settings settings; // to hold the game's settings
+    private Sudoku game; // to hold the Sudoku game
 
     /**
 	 * initialize and manage the game panel
@@ -56,17 +57,28 @@ public class GamePanel extends JPanel
         this.window = window; // to hold the game's main frame
         this.settings = settings; // to hold the game's settings
 
+        // clear the main frame but add the background
+        this.window.getContentPane().removeAll();
+        this.window.setContentPane(new BgPanel());
+
+        // add the menubar to the game frame
+        this.window.setJMenuBar(new MenuBar(this.window, this.settings));
+
         // ask the user what difficulty board they would like to play
         Difficulty difficulty = getDesiredDifficulty();
 
-        /*
-         * this panel will contain the user interface for the game;
-         * also, the panel will implement our BgPanel class
-         */
-        new BgPanel();
+        // start the SudokuGame with the argued difficulty
+        this.game = new Sudoku(difficulty); // start the sudoku game
 
         // set the panel's layout to BorderLayout
         this.setLayout(new BorderLayout());
+
+        // add the grid and lower panels to the game panel
+        this.add(new GameGridPanel(this.settings, this.game), BorderLayout.CENTER);
+        this.add(new GameLowerPanel(this.settings, this.game), BorderLayout.SOUTH);
+
+        // make the game panel transparent
+        this.setOpaque(false);
 
         // add the game panel to the main frame
         window.add(this);
@@ -76,7 +88,6 @@ public class GamePanel extends JPanel
 
         // repaint the main frame
         window.repaint();
-        //updateMainWindow();
     } // END: game() method
 
     /**

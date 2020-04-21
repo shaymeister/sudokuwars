@@ -34,10 +34,6 @@ public class MenuBar extends JMenuBar
      * randomly generated
      */
     private static final long serialVersionUID = -955443277560794332L;
-
-    // Global Variables
-    private JFrame window; // to hold the game's main frame
-    private Settings settings; // to hold the game's settings
     
     /**
      * create and manage the game's menu bar
@@ -51,6 +47,6 @@ public class MenuBar extends JMenuBar
         new JMenuBar();
         
         // add the game menu to the JMenuBar
-        this.add(new GameMenu(this.window, this.settings));
+        this.add(new GameMenu(window, settings));
     } // END: MenuBar() arg-constructor
 } // END: MenuBar class

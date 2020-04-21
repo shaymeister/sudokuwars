@@ -58,7 +58,10 @@ public class NewGameMenuItem extends JMenuItem
         this.settings = settings;
 
         // instantiate the JMenuItem
-        new JMenuItem("New Game");
+        new JMenuItem();
+
+        // set the text
+        this.setText("New Game");
 
         // add the actionListener
         this.addActionListener(new NewGameListener());

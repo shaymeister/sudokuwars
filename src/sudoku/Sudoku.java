@@ -42,7 +42,10 @@ public class Sudoku
         // TODO Finish Implementation
     } // END: Sudoku() constructor
 
-    /**
+    public Sudoku(Difficulty difficulty) {
+	}
+
+	/**
 	 * return a String visualization of the playing surface
      *
 	 * <hr>

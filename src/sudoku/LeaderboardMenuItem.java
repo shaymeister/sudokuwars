@@ -58,7 +58,10 @@ public class LeaderboardMenuItem extends JMenuItem
         this.settings = settings;
             
         // initialize the JMenuItem
-        new JMenuItem("Leaderboard");
+        new JMenuItem();
+
+        // set the title
+        this.setText("Leaderboard");
 
         // add the action listener
         this.addActionListener(new LeaderboardActionListener());
@@ -71,7 +74,7 @@ public class LeaderboardMenuItem extends JMenuItem
         catch (Exception e) // do the following if an error occurs
         {
             // this is the message that will be displayed via JOptionPane and CMD line
-            String errorPrompt = "There was an error importing the icons for the leaderboard menu item.";
+            final String errorPrompt = "There was an error importing the icons for the leaderboard menu item.";
             
             // use the CMD line to show the error message
             System.out.println(errorPrompt);

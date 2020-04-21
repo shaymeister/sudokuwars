@@ -17,8 +17,10 @@ package sudoku;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 /**
  * represent a JMenuItem in the game menu that allows the
@@ -56,7 +58,31 @@ public class HelpMenuItem extends JMenuItem
         this.settings = settings;
 
         // initialize the JMenuItem
-        new JMenuItem("Help");
+        new JMenuItem();
+
+        // set the title of the menu item
+        this.setText("Help");
+
+        // attempt to set the icon for the help menu
+        try
+        {
+            this.setIcon(new ImageIcon(settings.getPathHelpMenuIcon()));
+        } // END: attempting to the set icons
+        catch (Exception e) // do the following if an error occurs
+        {
+            // this is the message that will be displayed via JOptionPane and CMD line
+            final String errorPrompt = "There was an error importing the icons for the help menu item.";
+            
+            // use the CMD line to show the error message
+            System.out.println(errorPrompt);
+            
+            // use JOptionPane to show the error message
+            JOptionPane.showMessageDialog(null,
+                            errorPrompt,
+                            settings.getTitle(),
+                            JOptionPane.WARNING_MESSAGE);
+        } // END: error catching
+        // attempt to set the icon
 
         // add the actionListener
         this.addActionListener(new HelpActionListener());
