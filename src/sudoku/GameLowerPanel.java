@@ -12,7 +12,10 @@
 
 package sudoku;
 
-import javax.swing.JLabel;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -38,9 +41,21 @@ public class GameLowerPanel extends JPanel
 	 * <hr>
 	 * Date created: April 21, 2020
 	 */
-    public GameLowerPanel(Settings settings, Sudoku game)
+    public GameLowerPanel(Settings settings, Sudoku game, JFrame window)
     {
-        //! Temporary
-        this.add(new JLabel("Lower Panel"));
+        this.setLayout(new GridLayout(1,9));
+
+        this.setOpaque(false);
+
+        this.setPreferredSize(new Dimension(600, 67));
+
+        char[] values = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
+
+        // loop 1-9 to add all digits to 
+        for (int i = 0; i < 9; i++)
+        {
+            // add the given element
+            this.add(new GameLowerPanelElement(game, settings, values[i] , window));
+        } // END: looping through all digits
 	} // END: GameLowerPanel() arg constructor
 } // END: GameLowerPanel class

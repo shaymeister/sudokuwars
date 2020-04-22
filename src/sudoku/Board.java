@@ -138,7 +138,7 @@ public class Board
          * generate a number 1 - 10 that will be used to
          * determine which board to import
          */
-        int index = (this.difficulty.equals(Difficulty.UNBEATABLE)) ? 1 : rnd.nextInt(11);
+        int index = (this.difficulty.equals(Difficulty.UNBEATABLE)) ? 1 : rnd.nextInt(10) + 1;
         
         // import the empty board (aka board to be solved)
         char[] emptyBoard = new char[81];

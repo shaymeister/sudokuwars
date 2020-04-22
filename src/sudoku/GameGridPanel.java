@@ -15,6 +15,7 @@ package sudoku;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -29,11 +30,6 @@ import javax.swing.JPanel;
  */
 public class GameGridPanel extends JPanel
 {
-    // global variables
-    private Settings settings;
-    private Sudoku game;
-    private Board board;
-
     /**
      * randomly generated
      */
@@ -45,7 +41,7 @@ public class GameGridPanel extends JPanel
      * <hr>
      * Date created: April 20, 2020
      */
-    public GameGridPanel(Settings settings, Sudoku game)
+    public GameGridPanel(Settings settings, Sudoku game, JFrame window)
     {
         // initialize the panel
         new JPanel();
@@ -58,14 +54,11 @@ public class GameGridPanel extends JPanel
 
         this.setBorder(BorderFactory.createEmptyBorder(50, 75, 75, 75));
 
-        // initialize the global variables
-        this.settings = settings;
-        this.game = game;
-
         // add every element of the board to the grid
         for (int i = 0; i < 81; i++)
         {
-            this.add(new GameGridElement(game, i, settings));
+            // create the GameGridElement
+            this.add(new GameGridElement(game, i, settings, window));
         } // END: building panel
     } // GameGridPanel() arg-constructor
 } // END: GameGridPanel class

@@ -14,6 +14,7 @@ package sudoku;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -40,7 +41,7 @@ public class IntroUpperPanel extends JPanel
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
-    public IntroUpperPanel(Settings settings)
+    public IntroUpperPanel(JFrame window, Settings settings)
     {
         // make the panel transparent
         this.setOpaque(false);
@@ -63,10 +64,10 @@ public class IntroUpperPanel extends JPanel
                                      + "properly installed";
             
             // display using JOptionPane
-            JOptionPane.showMessageDialog(null,
-                    errorPrompt,
-                    settings.getTitle(),
-                    JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(window,
+                                          errorPrompt,
+                                          settings.getTitle(),
+                                          JOptionPane.WARNING_MESSAGE);
             
             // display using CMD line
             System.out.println(errorPrompt);

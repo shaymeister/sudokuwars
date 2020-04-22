@@ -23,9 +23,10 @@ import javax.swing.*;
  *
  * <hr>
  * Date created: April 13, 2020
- * Last modified: April 13, 2020
+ * Last modified: April 22, 2020
  * <hr>
  * @author Shay Snyder
+ * @author Holden Dalton 
  */
 public class Leaderboard
 {
@@ -34,11 +35,13 @@ public class Leaderboard
     private String initialPath; // to hold the initial path of the leaderboard
 
     /**
-	 * no-arg constructor for the Leaderboard class
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
+	*Purpose: constructor for the leaderboard 
+	*
+	*Date created: 04/22/2020
+	*
+	*@param none 
+	*@return none 
+	*/
     public Leaderboard()
     {
         this.leaderboard = new ArrayList<Board>();
@@ -60,12 +63,16 @@ public class Leaderboard
 				
 				String strUser = fields[0];
 				String strDifficulty = fields[1];
-				String strTime = fields[2];
-				String strMoves = fields[3];
+				String strMinutes = fields[2];
+				String strSeconds = fields[3];
+				String strMoves = fields[4];
 				
 				Difficulty diff = Difficulty.valueOf(strDifficulty);
+				long LMins = Long.parseLong(strMinutes);
+				long LSecs = Long.parseLong(strSeconds);
+				int iMoves = Integer.parseInt(strMoves);
 				
-				Board board = new Board(strUser,diff);
+				Board board = new Board(strUser,diff,LMins,LSecs,iMoves);
 				this.leaderboard.add(board);
 			}
 			input.close();
@@ -78,18 +85,29 @@ public class Leaderboard
 		
     } // END: Leaderboard()
 
+	/**
+	*Purpose: add a board to the list when the player has completed a board 
+	*
+	*Date created: 04/22/2020
+	*
+	*@param board - board that the player completed 
+	*@return none 
+	*/
 	public void addToList(Board board)
 	{
 		this.leaderboard.add(board);
+		export();
 	}
 
 
     /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
+	*Purpose: sort boards by player 
+	*
+	*Date created: 04/22/2020
+	*
+	*@param none 
+	*@return none 
+	*/
     public void sortByPlayer()
     {
         String user1;
@@ -107,20 +125,22 @@ public class Leaderboard
 				user2 = board2.getUser();
 				if(user1.compareTo(user2)>0)
 				{
-					leaderboard.set(counter, user2);
-					leaderboard.set(position, user1);
+					leaderboard.set(counter, board2);
+					leaderboard.set(position, board1);
 				}
 			}
 		}
 		
     } // END: sortByPlayer() method
 
-    /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
+   /**
+	*Purpose: sorts the boards by difficulty 
+	*
+	*Date created: 04/22/2020
+	*
+	*@param none 
+	*@return none 
+	*/
     public void sortByDifficulty()
     {
         Difficulty diff1;
@@ -152,26 +172,21 @@ public class Leaderboard
     } // END: sortByDifficulty() method
 
     /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
+	*Purpose: sort the boards by time
+	*
+	*Date created: 04/22/2020
+	*
+	*@param none 
+	*@return none 
+	*/
     public void sortByTime()
     {
-        
-    } // END: sortByTime() method
-
-    /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public void sortByMoves()
-    {
-        String moves1;
-		String moves2;
+        long totalTimeSec1;
+		long totalTimeSec2;
+		long LMinutes1;
+		long LMinutes2;
+		long LSeconds1;
+		long LSeconds2;
 		Board board1;
 		Board board2;
 		
@@ -181,25 +196,31 @@ public class Leaderboard
 			{
 				board1 = leaderboard.get(counter);
 				board2 = leaderboard.get(position);
-				moves1 = board1.getNumOfMoves();
-				moves2 = board2.getNumOfMoves();
+				LMinutes1 = board1.getMinutes();
+				LMinutes2 = board2.getMinutes();
+				LSeconds1 = board1.getSeconds();
+				LSeconds2 = board2.getSeconds();
 				
-				if(moves1.compareTo(moves2)>0)
+				totalTimeSec1 = (LMinutes1*60)+LSeconds1;
+				totalTimeSec2 = (LMinutes2*60)+LSeconds2;
+				
+				if(totalTimeSec1<totalTimeSec2)
 				{
 					leaderboard.set(counter, board2);
 					leaderboard.set(position, board1);
 				}
 			}
 		}
-		
-    } // END: sortByMoves() method
+    } // END: sortByTime() method
 
     /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
+	*Purpose: get all boards by player name 
+	*
+	*Date created: 04/22/2020
+	*
+	*@param user- player name being searched 
+	*@return byPlayer-list of boards by that player 
+	*/
     public ArrayList<Board> searchByPlayer(String user)
     {
         ArrayList<Board> byPlayer = new ArrayList<Board>();
@@ -218,11 +239,13 @@ public class Leaderboard
     } // END: searchByPlayer() method
 
     /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
+	*Purpose: get list of boards by difficulty
+	*
+	*Date created: 04/22/2020
+	*
+	*@param diff-difficulty being searched 
+	*@return diffBoard-list of the searched difficulty 
+	*/
     public ArrayList<Board> searchByDifficulty(Difficulty diff)
     {
         ArrayList<Board> diffBoard;
@@ -241,14 +264,53 @@ public class Leaderboard
     } // END: searchByDifficulty() method
 
 
-    /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
+   /**
+	*Purpose: save the list in a text file 
+	*
+	*Date created: 04/22/2020
+	*
+	*@param none 
+	*@return none 
+	*/
     private void export()
     {
-        // TODO FINISH IMPLEMENTATION
+       PrintWriter printWriter = null;
+	   String strUser = null;
+	   String strDiff = null;
+	   String strMins = null;
+	   String strSecs = null;
+	   String strMoves = null;
+	   Difficulty diff;
+	   long minutes;
+	   long seconds;
+	   int moves;
+	   
+	   
+	   try 
+	   {
+		   printWriter = new PrintWriter("leaderboard.txt");
+		   for(int counter=0;counter<leaderboard.size();counter++)
+		   {
+			   Board board = leaderboard.get(counter);
+			   strUser = board.getUser();
+			   diff = board.getDifficulty();
+			   minutes = board.getMinutes();
+			   seconds = board.getSeconds();
+			   moves = board.getMoves();
+			   
+			   strDiff = diff.toString();
+			   strMins = Long.toString(minutes);
+			   strSecs = Long.toString(seconds);
+			   strMoves = Integer.toString(moves);
+			   
+			   printWriter.println(strUser+"|"+strDiff+"|"+strMins+"|"+strSecs+"|"+strMoves);
+			   
+		   }
+		   printWriter.close();
+	    }
+		catch(Exception ex)
+		{
+			JOptionPane.showMessageDialog(null,"Error in saving the leaderboard","Sudoku",JOptionPane.ERROR_MESSAGE);
+		}
     } // END: export() method
 } // END: Leaderboard class
