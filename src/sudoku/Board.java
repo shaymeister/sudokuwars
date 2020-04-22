@@ -33,7 +33,7 @@ import java.util.*;
 public class Board
 {
     // global variables
-    private Piece[][] board = new Piece[9][9];
+    private Piece[][] board;
     private Random rnd = new Random();
     private Calendar calendar;
     private Difficulty difficulty;
@@ -42,9 +42,78 @@ public class Board
     private long startTime;
     private long endTime;
     private int numOfMoves;
-    private int score;
+    private int score;            //not sure if doing a score delete later
 	private String boardFilePath;
 
+
+
+
+
+	/**
+	* Constructor -- give default values
+	*
+	* <hr>
+	* Date created: April 21,2020
+	*/
+	public Board()
+	{
+		//set the "default" 
+		this.board = new Piece[9][9];
+		this.user = "Joe"; //temporary(default) fill in
+		this.numOfMoves = 0;
+		this.endTime = 0;
+		this.difficulty = Difficulty.EASY;
+	}
+
+	/**
+	* Parameterized Constructor
+	*
+	* <hr>
+	* Date created: April 21,2020
+	*/
+	pulbic Board(String userName, Difficulty dIn)
+	{
+		//initialize attributes based on info given
+		this.board = new Piece[9][9];
+		this.user = userName;
+		this.numOfMoves = 0;
+		this.endTime = 0;
+		this.difficulty = dIn;
+	}
+
+
+	/**
+	* @return user
+	*/
+	public String getUser()
+	{
+		return this.user;
+	}
+	
+	/**
+	* @return difficulty
+	*/
+	public Difficulty getDifficulty()
+	{
+		return this.difficulty;
+	}
+	
+	/**
+	* @return time
+	*/
+	public long getTimeOfGame()
+	{
+		//for now return end time... need to check this
+		return this.endTime;
+	}
+	
+	/**
+	* @return numOfMoves
+	*/
+	public int getNumOfMoves()
+	{
+		return this.numOfMoves;
+	}
 	
 	
     /**
