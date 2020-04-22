@@ -57,7 +57,7 @@ public class IntroPanel extends JPanel
         this.setLayout(new BorderLayout());
                 
         // add the upper and lower panels to the introPanel
-        this.add(new IntroUpperPanel(this.settings), BorderLayout.CENTER);
+        this.add(new IntroUpperPanel(this.window, this.settings), BorderLayout.CENTER);
         this.add(new IntroLowerPanel(this.window, this.settings), BorderLayout.SOUTH);
         
         // make this panel transparent

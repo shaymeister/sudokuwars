@@ -73,8 +73,8 @@ public class GamePanel extends JPanel
         this.setLayout(new BorderLayout());
 
         // add the grid and lower panels to the game panel
-        this.add(new GameGridPanel(this.settings, this.game), BorderLayout.CENTER);
-        this.add(new GameLowerPanel(this.settings, this.game), BorderLayout.SOUTH);
+        this.add(new GameGridPanel(this.settings, this.game, this.window), BorderLayout.CENTER);
+        this.add(new GameLowerPanel(this.settings, this.game, this.window), BorderLayout.SOUTH);
 
         // set the layout
         window.setLayout(new BorderLayout());

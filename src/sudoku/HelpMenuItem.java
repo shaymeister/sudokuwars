@@ -73,10 +73,10 @@ public class HelpMenuItem extends JMenuItem
             System.out.println(errorPrompt);
             
             // use JOptionPane to show the error message
-            JOptionPane.showMessageDialog(null,
-                            errorPrompt,
-                            settings.getTitle(),
-                            JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(window,
+                                          errorPrompt,
+                                          settings.getTitle(),
+                                          JOptionPane.WARNING_MESSAGE);
         } // END: error catching
         // attempt to set the icon
 
