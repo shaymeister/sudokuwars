@@ -80,6 +80,14 @@ public class Board
 	}
 	
 	/**
+	* @return difficulty 
+	*/
+	public Difficulty getDifficulty()
+	{
+		return this.difficulty;
+	}
+	
+	/**
 	* @return minutes 
 	*/
 	public long getMinutes()
