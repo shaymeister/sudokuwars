@@ -72,6 +72,7 @@ public class Board
 	
 	public Board(String strUser,Difficulty diff,long mins,long sec,int moves)
 	{
+		this.startDate = Calendar.getInstance().getTime();
 		this.user = user;
 		this.difficulty = diff;
 		this.minutes = mins;
@@ -336,88 +337,107 @@ public class Board
     public void submitMove(String move)
     {
         // TODO FINISH IMPLEMENTATION
+		
+		
+		
     } // END: submitMove() method
 
     /**
-	 * TODO FINISH DOCUMENTATION
+	 * compare player names
      *
 	 * <hr>
 	 * Date created: April 13, 2020
+	 *
+	 * @return int
 	 */
     public int comparePlayer(Board otherBoard)
     {
-        // TODO FINISH IMPLEMENTATION
-        return 0; //! change later
+        // compare String user with compareTo method
+        return user.compareTo(otherBoard.getUser);
     } // END: comparePlayer() method
 
     /**
-	 * TODO FINISH DOCUMENTATION
+	 * compare difficulty levels
      *
 	 * <hr>
 	 * Date created: April 13, 2020
+	 *
+	 * @return int
 	 */
     public int compareDifficulty(Board otherBoard)
     {
-        // TODO FINISH IMPLEMENTATION
-        return 0; //! change later
+        // compare two difficulty objects
+        return difficulty.compareTo(otherBoard.getDifficulty);
     } // END: compareDifficulty() method
 
     /**
-	 * TODO FINISH DOCUMENTATION
+	 * compare times took to complete
      *
 	 * <hr>
 	 * Date created: April 13, 2020
+	 *
+	 * @return r
 	 */
     public int compareTime(Board otherBoard)
     {
-        // TODO FINISH IMPLEMENTATION
-        return 0; //! change later
+        /* since the smaller number for times means 
+		*  a better time, the output for comparison will be positive
+		*  if the first time is less than the second*/
+		int r = 0;
+		if(minutes < otherBoard.getMinutes())
+			r = 1;
+		else if (minutes == otherBoard.getMinutes())
+		{
+			if(seconds < otherBoard.getSeconds())
+				r = 1;
+			else if(seconds == otherBoard.getSeconds())
+				r = 0;
+			else
+				r = -1;
+		}
+		else
+			r = -1;
+		
+        return r; 
     } // END: compareTime() method
 
-    /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public int compareScore(Board otherBoard)
-    {
-        // TODO FINISH IMPLEMENTATION
-        return 0; //! change later
-    } // END: compareScore() method
+    
 
     /**
-	 * TODO FINISH DOCUMENTATION
+	 * compare the number of moves took to complete puzzle
      *
 	 * <hr>
 	 * Date created: April 13, 2020
+	 *
+	 * @return n
 	 */
     public int compareMoves(Board otherBoard)
     {
-        // TODO FINISH IMPLEMENTATION
-        return 0; //! change later
+        // compare the numOfMoves value
+		//initially equal 
+		int n = 0;
+		if (numOfMoves < otherBoard.getMoves())
+			n = -1;
+		else if (numOfMoves > otherBoard.getMoves())
+			n = 1;
+		
+        return n; //! change later
     } // END: compareMoves() method
 
-    /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    private void calculateScore()
-    {
-        // TODO FINISH IMPLEMENTATION
-    } // END: calculateScore() method
+    
 
     /**
-	 * TODO FINISH DOCUMENTATION
+	 * since startDate is initialized in the constructors
+	 * need to set the endTime
      *
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
-    private void startTime()
+    private void endTime()
     {
-        // TODO FINISH IMPLEMENTATION
+        //set the end time
+		this.endDate = Calendar.getInstance().getTime();
+		
     } // END: startTime() method
 
     /**
@@ -428,7 +448,13 @@ public class Board
 	 */
     private void calculatePlayTime()
     {
-        // TODO FINISH IMPLEMENTATION
+        // subtract times from dates
+		long diff = endDate.getTime() - startDate.getTime();
+		
+		this.minutes = diff / (60*1000) % 60;
+		this.seconds = diff / 1000%60;
+		
+		
     } // END: calculatePlayTime() method
 
     /**
