@@ -51,6 +51,7 @@ development of this project.
 ## Misc
 
 - the design document can be accessed [here](https://etsu365-my.sharepoint.com/:w:/g/personal/snyderse2_etsu_edu/Edj9tO5yJx9IjJqxE3u1ux0BfrArykc4PO5uTZMFryiEbA?e=5Teonb)
+- the powerpoint can be accessed [here](https://etsu365-my.sharepoint.com/:p:/g/personal/snyderse2_etsu_edu/EY_pIK3EcA9It5g8qNIrj2QB4PYpDzgOitWbk0zjkW3v6w?e=ZDB6tm)
 - Star Wars Font Generator [link](https://www.dafont.com/star-jedi.font)
 - Libgdx [link](https://libgdx.badlogicgames.com/)
 - Learning Libgdx Game Development [link](https://learning.oreilly.com/library/view/learning-libgdx-game/9781782166047/)
