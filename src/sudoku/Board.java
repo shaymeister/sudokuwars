@@ -240,7 +240,7 @@ public class Board
         else if (this.difficulty.equals(Difficulty.EXPERT))
         {
             // return the appropriate String to access the file
-            return "expert";
+            return "extreme";
         } // END: expert
 
         // assuming the desired difficulty = unbeatable

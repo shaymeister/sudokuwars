@@ -100,7 +100,7 @@ public class GamePanel extends JPanel
         /*
          * This array contains the various difficulty options for the user
          */
-        String[] options = {"unbeatable", "expert", "hard", "medium", "easy"};
+        String[] options = {"easy", "medium", "hard", "extreme", "unbeatable"};
 
         /*
          * Use JOptionPane to ask the user what difficulty
@@ -119,34 +119,34 @@ public class GamePanel extends JPanel
         /* This switch is used to manage the various outputs from the
         * aforementioned JOptionPane showOptionDialog box.
         * 
-        * 0 = the user selected 'unbeatable'
-        * 1 = the user selected 'expert'
+        * 0 = the user selected 'easy'
+        * 1 = the user selected 'medium'
         * 2 = the user selected 'hard'
-        * 3 = the user selected 'medium'
-        * 4 = the user selected 'easy'
+        * 3 = the user selected 'extreme'
+        * 4 = the user selected 'unbeatable'
         * Default: 'easy'
         */
         switch (choice)
         {
-            // assuming user selects 'unbeatable'
+            // assuming user selects 'easy'
             case 0:
-                return Difficulty.UNBEATABLE;
+                return Difficulty.EASY;
 
-            // assuming the user selects 'expert'
+            // assuming the user selects 'medium'
             case 1:
-                return Difficulty.EXPERT;
+                return Difficulty.MEDIUM;
 
             // assuming the user selects 'hard'
             case 2:
                 return Difficulty.HARD;
 
-            // assuming the user selects 'medium'
+            // assuming the user selects 'extreme'
             case 3:
-                return Difficulty.MEDIUM;
+                return Difficulty.EXPERT;
 
-            // assuming the user selects 'easy'
+            // assuming the user selects 'unbeatable'
             case 4:
-                return Difficulty.EASY;
+                return Difficulty.UNBEATABLE;
 
             // default
             default:
