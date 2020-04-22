@@ -41,6 +41,8 @@ public class Board
     private boolean complete;
     private int numOfMoves;
     private int score;
+	private long minutes;
+	private long seconds;
 
     /**
 	 * arg constructor for the Board class
@@ -67,6 +69,55 @@ public class Board
         // build the board
         buildBoard();
 	} // END: Board() arg constructor
+	
+	public Board(String strUser,Difficulty diff,long mins,long sec,int moves)
+	{
+		this.user = user;
+		this.difficulty = diff;
+		this.minutes = mins;
+		this.seconds = sec;
+		this.numOfMoves = moves;
+	}
+	
+	/**
+	* @return difficulty 
+	*/
+	public Difficulty getDifficulty()
+	{
+		return this.difficulty;
+	}
+	
+	/**
+	* @return minutes 
+	*/
+	public long getMinutes()
+	{
+		return this.minutes;
+	}
+	
+	/**
+	* @return seconds
+	*/
+	public long getSeconds()
+	{
+		return this.seconds;
+	}
+	
+	/**
+	* @return user String
+	*/
+	public String getUser()
+	{
+		return this.user;
+	}
+	
+	/**
+	* @return numOfMoves
+	*/
+	public int getMoves();
+	{
+		return this.numOfMoves;
+	}
 
     /**
 	 * construct the Element[] that will be used
