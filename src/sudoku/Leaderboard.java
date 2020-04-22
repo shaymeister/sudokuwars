@@ -124,8 +124,8 @@ public class Leaderboard
 				user2 = board2.getUser();
 				if(user1.compareTo(user2)>0)
 				{
-					leaderboard.set(counter, user2);
-					leaderboard.set(position, user1);
+					leaderboard.set(counter, board2);
+					leaderboard.set(position, board1);
 				}
 			}
 		}
@@ -279,10 +279,10 @@ public class Leaderboard
 	   String strMins = null;
 	   String strSecs = null;
 	   String strMoves = null;
-	   Difficulty diff = null;
-	   long minutes = null;
-	   long seconds = null;
-	   int moves = null;
+	   Difficulty diff;
+	   long minutes;
+	   long seconds;
+	   int moves;
 	   
 	   
 	   try 
@@ -298,9 +298,9 @@ public class Leaderboard
 			   moves = board.getMoves();
 			   
 			   strDiff = diff.toString();
-			   strMins = minutes.toString();
-			   strSecs = seconds.toString();
-			   strMoves = moves.toString();
+			   strMins = Long.toString(minutes);
+			   strSecs = Long.toString(seconds);
+			   strMoves = Integer.toString(moves);
 			   
 			   printWriter.println(strUser+"|"+strDiff+"|"+strMins+"|"+strSecs+"|"+strMoves);
 			   
