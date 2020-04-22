@@ -3,9 +3,7 @@
  * File name: BgPanel.java
  * Project name: SudokuWars
  * ---------------------------------------------------------------------------
- * Creator's name and email: Holden Dalton, daltonh@etsu.edu
  * Creator's name and email: Shay Snyder, snyderse2@etsu.edu
- * Creator's name and email: Hannah Taylor, hannahm1@mail.etsu.edu
  *
  * Course:  CSCI 1260-288
  * Creation Date: April 19, 2020
@@ -28,9 +26,7 @@ import java.awt.Image;
  * Date created: April 19, 2020
  * Last modified: April 19, 2020
  * <hr>
- * @author Holden Dalton
  * @author Shay Snyder
- * @author Hannah Taylor
  */
 public class BgPanel extends JPanel
 {
@@ -51,6 +47,9 @@ public class BgPanel extends JPanel
      *
 	 * <hr>
 	 * Date created: April 13, 2020
+     * 
+     * <hr>
+     * @param g
 	 */
     @Override
     public void paintComponent(Graphics g)

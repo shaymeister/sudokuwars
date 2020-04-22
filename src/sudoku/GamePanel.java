@@ -3,9 +3,7 @@
  * File name: GamePanel.java
  * Project name: SudokuWars
  * ---------------------------------------------------------------------------
- * Creator's name and email: Holden Dalton, daltonh@etsu.edu
  * Creator's name and email: Shay Snyder, snyderse2@etsu.edu
- * Creator's name and email: Hannah Taylor, hannahm1@mail.etsu.edu
  *
  * Course:  CSCI 1260-288
  * Creation Date: April 20, 2020
@@ -29,9 +27,7 @@ import javax.swing.JPanel;
  * Date created: April 20, 2020
  * Last modified: April 20, 2020
  * <hr>
- * @author Holden Dalton
  * @author Shay Snyder
- * @author Hannah Taylor
  */
 public class GamePanel extends JPanel
 {
@@ -70,6 +66,9 @@ public class GamePanel extends JPanel
         // start the SudokuGame with the argued difficulty
         this.game = new Sudoku(difficulty); // start the sudoku game
 
+        // make this panel transparent
+        this.setOpaque(false);
+
         // set the panel's layout to BorderLayout
         this.setLayout(new BorderLayout());
 
@@ -77,11 +76,11 @@ public class GamePanel extends JPanel
         this.add(new GameGridPanel(this.settings, this.game), BorderLayout.CENTER);
         this.add(new GameLowerPanel(this.settings, this.game), BorderLayout.SOUTH);
 
-        // make the game panel transparent
-        this.setOpaque(false);
+        // set the layout
+        window.setLayout(new BorderLayout());
 
         // add the game panel to the main frame
-        window.add(this);
+        window.add(this, BorderLayout.CENTER);
 
         // revalidate the main frame
         window.validate();
@@ -120,33 +119,34 @@ public class GamePanel extends JPanel
         /* This switch is used to manage the various outputs from the
         * aforementioned JOptionPane showOptionDialog box.
         * 
-        * 0 = the user selected 'expert'
-        * 1 = the user selected 'hard'
-        * 2 = the user selected 'medium'
-        * 3 = the user selected 'easy'
+        * 0 = the user selected 'unbeatable'
+        * 1 = the user selected 'expert'
+        * 2 = the user selected 'hard'
+        * 3 = the user selected 'medium'
+        * 4 = the user selected 'easy'
         * Default: 'easy'
         */
         switch (choice)
         {
-            // assuming user selects 'easy'
+            // assuming user selects 'unbeatable'
             case 0:
-                return Difficulty.EASY;
+                return Difficulty.UNBEATABLE;
 
-            // assuming the user selects 'medium'
+            // assuming the user selects 'expert'
             case 1:
-                return Difficulty.MEDIUM;
+                return Difficulty.EXPERT;
 
             // assuming the user selects 'hard'
             case 2:
                 return Difficulty.HARD;
 
-            // assuming the user selects 'expert'
+            // assuming the user selects 'medium'
             case 3:
-                return Difficulty.EXPERT;
+                return Difficulty.MEDIUM;
 
-            // assuming the user selects 'unbeatable'
+            // assuming the user selects 'easy'
             case 4:
-                return Difficulty.UNBEATABLE;
+                return Difficulty.EASY;
 
             // default
             default:

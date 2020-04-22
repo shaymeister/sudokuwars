@@ -3,9 +3,7 @@
  * File name: Sudoku.java
  * Project name: SudokuWars
  * ---------------------------------------------------------------------------
- * Creator's name and email: Holden Dalton, daltonh@etsu.edu
  * Creator's name and email: Shay Snyder, snyderse2@etsu.edu
- * Creator's name and email: Hannah Taylor, hannahm1@mail.etsu.edu
  *
  * Course:  CSCI 1260-288
  * Creation Date: April 13, 2020
@@ -21,9 +19,7 @@ package sudoku;
  * Date created: April 13, 2020
  * Last modified: April 13, 2020
  * <hr>
- * @author Holden Dalton
  * @author Shay Snyder
- * @author Hannah Taylor
  */
 public class Sudoku
 {
@@ -32,18 +28,16 @@ public class Sudoku
     private Leaderboard leaderboard; // to hold the game's leaderboard
 
     /**
-	 * initialize the game
+	 * arg-constructor for the Sudoku class
      *
 	 * <hr>
-	 * Date created: April 13, 2020
+	 * Date created: April 21, 2020
 	 */
-    public Sudoku()
+    public Sudoku(Difficulty difficulty)
     {
-        // TODO Finish Implementation
-    } // END: Sudoku() constructor
-
-    public Sudoku(Difficulty difficulty) {
-	}
+        // create a board of the desired difficulty
+        board = new Board(difficulty);
+	} // END: Sudoku() arg constructor
 
 	/**
 	 * return a String visualization of the playing surface
@@ -92,4 +86,28 @@ public class Sudoku
     {
 
     } // END: sortLeaderboard() method
+
+    /**
+	 * return the game's current board
+     *
+	 * <hr>
+	 * Date created: April 21, 2020
+	 */
+    public Board getBoard()
+    {
+        // return the game's board
+		return this.board;
+	} // END: getBoard() method
+
+    /**
+	 * return the current value of the element at the argued index
+     *
+	 * <hr>
+	 * Date created: April 21, 2020
+	 */
+    public char getElementValue(int index)
+    {
+        // return the current value of the element at the argued index
+		return this.board.getElementValue(index);
+	} // END: getElementValue() method
 } // END: Sudoku class
