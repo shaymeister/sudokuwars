@@ -233,7 +233,7 @@ public class Board
         else if (this.difficulty.equals(Difficulty.HARD))
         {
             // return the appropriate String to access the file
-            return "extreme";
+            return "hard";
         } // END: hard
 
         // assuming the desired difficulty = expert
@@ -389,7 +389,7 @@ public class Board
 	 */
     public char getElementValue(int index) 
     {
-        // return the value of the element at the index
+        // return the value of the element at the argued index
 		return board[index].getValue();
 	} // END: getElementValue() method
 } // END: Board class
