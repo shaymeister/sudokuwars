@@ -33,7 +33,8 @@ public class Settings
     private String pathHelpMenuIcon; // path to help menu icon
     private String pathLeaderboardMenuIcon; // path to leaderboard menu icon
     private String pathStartGameMenuIcon; // path to start game menu icon
-    private String title;
+    private String pathGridElementDir; // path to the grid element icon directory
+    private String title; // the game's title
 
     /**
 	 * initialize the Settings class to the default values
@@ -53,6 +54,7 @@ public class Settings
         this.pathHelpMenuIcon = "icons/icons8-help.png";
         this.pathLeaderboardMenuIcon = "icons/icons8-leaderboard.png";
         this.pathStartGameMenuIcon = "icons/icons8-play.png";
+        this.pathGridElementDir = "icons/";
         this.title = "SudokuWars";
     } // END: Settings() no-arg constructor
 
@@ -224,4 +226,18 @@ public class Settings
          */
 		return this.pathHelpMenuIcon;
 	} // END: getPathHelpMenuIcon()
+
+
+    /**
+	 * return the path to the appropriate image for 
+     * the grid element icon
+     *
+	 * <hr>
+     * Date created: April 22, 2020
+	 */
+    public String getPathGridElementIcon(char value) 
+    {
+        // return the appropriate path
+		return this.pathGridElementDir + value + ".png";
+	} // END: getPathGridElementIcon() method
 } // END: Settings() class

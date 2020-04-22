@@ -76,10 +76,10 @@ public class NewGameMenuItem extends JMenuItem
             System.out.println(errorPrompt);
             
             // use JOptionPane to show the error message
-            JOptionPane.showMessageDialog(null,
-                            errorPrompt,
-                            this.settings.getTitle(),
-                            JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(window,
+                                          errorPrompt,
+                                          this.settings.getTitle(),
+                                          JOptionPane.WARNING_MESSAGE);
         } // END: error catching
     } // END: NewGameMenuItem() arg-constructor
     
@@ -105,7 +105,7 @@ public class NewGameMenuItem extends JMenuItem
         public void actionPerformed(ActionEvent e)
         {
             // make sure the user would like to start a new game
-            int result = JOptionPane.showConfirmDialog(null,
+            int result = JOptionPane.showConfirmDialog(window,
                             "Are you sure you would like to start a new game?",
                             "SudokuWars",
                             JOptionPane.YES_NO_OPTION);

@@ -12,13 +12,15 @@
 
 package sudoku;
 
+import java.util.Random;
+
 /**
  * represent and control the actual game
  *
  * <hr>
- * Date created: April 13, 2020
- * Last modified: April 13, 2020
+ * Date created: April 13, 2020 Last modified: April 13, 2020
  * <hr>
+ * 
  * @author Shay Snyder
  */
 public class Sudoku
@@ -64,16 +66,31 @@ public class Sudoku
     } // END: showLeaderboard() method
 
     /**
+	 * submit the index of the desired element to submit a value; 
+     * a boolean attribute representing the success status of
+     * said submission
+     *
+	 * <hr>
+	 * Date created: April 22, 2020
+	 */
+    public boolean setDesiredElement(int index)
+    {
+        Random rnd = new Random();
+        return rnd.nextBoolean();
+    } // END: setDesiredMove() method
+
+    /**
 	 * submit a move to the board; a boolean attribute
      * representing the success status of said submission
      *
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
-    public boolean submitMove()
+    public boolean submitMove(char value)
     {
         // todo finish implementation
-        return false; //! change later
+        Random rnd = new Random();
+        return rnd.nextBoolean(); //! change later
     } // END: submitMove() method
 
     /**
