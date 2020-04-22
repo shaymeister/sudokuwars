@@ -78,6 +78,38 @@ public class Board
 		this.seconds = sec;
 		this.numOfMoves = moves;
 	}
+	
+	/**
+	* @return minutes 
+	*/
+	public long getMinutes()
+	{
+		return this.minutes;
+	}
+	
+	/**
+	* @return seconds
+	*/
+	public long getSeconds()
+	{
+		return this.seconds;
+	}
+	
+	/**
+	* @return user String
+	*/
+	public String getUser()
+	{
+		return this.user;
+	}
+	
+	/**
+	* @return numOfMoves
+	*/
+	public int getMoves();
+	{
+		return this.numOfMoves;
+	}
 
     /**
 	 * construct the Element[] that will be used
