@@ -3,9 +3,7 @@
  * File name: Board.java
  * Project name: SudokuWars
  * ---------------------------------------------------------------------------
- * Creator's name and email: Holden Dalton, daltonh@etsu.edu
  * Creator's name and email: Shay Snyder, snyderse2@etsu.edu
- * Creator's name and email: Hannah Taylor, hannahm1@mail.etsu.edu
  *
  * Course:  CSCI 1260-288
  * Creation Date: April 13, 2020
@@ -14,10 +12,13 @@
 
 package sudoku;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Random;
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
 /**
  * Represent and control the sudoku playing surface
@@ -26,334 +27,245 @@ import java.util.*;
  * Date created: April 13, 2020
  * Last modified: April 13, 2020
  * <hr>
- * @author Holden Dalton
  * @author Shay Snyder
- * @author Hannah Taylor
  */
 public class Board
 {
     // global variables
-    private Piece[][] board;
-    private Random rnd = new Random();
-    private Calendar calendar;
+    private Date startDate;
+    private Date endDate;
     private Difficulty difficulty;
+    private Element[] board;
+    private Random rnd;
     private String user;
     private boolean complete;
-    private long startTime;
-    private long endTime;
     private int numOfMoves;
-    private int score;            //not sure if doing a score delete later
-	private String boardFilePath;
+    private int score;
 
-
-
-
-
-	/**
-	* Constructor -- give default values
-	*
-	* <hr>
-	* Date created: April 21,2020
-	*/
-	public Board()
-	{
-		//set the "default" 
-		this.board = new Piece[9][9];
-		this.user = "Joe"; //temporary(default) fill in
-		this.numOfMoves = 0;
-		this.endTime = 0;
-		this.difficulty = Difficulty.EASY;
-	}
-
-	/**
-	* Parameterized Constructor
-	*
-	* <hr>
-	* Date created: April 21,2020
-	*/
-	pulbic Board(String userName, Difficulty dIn)
-	{
-		//initialize attributes based on info given
-		this.board = new Piece[9][9];
-		this.user = userName;
-		this.numOfMoves = 0;
-		this.endTime = 0;
-		this.difficulty = dIn;
-	}
-
-
-	/**
-	* @return user
-	*/
-	public String getUser()
-	{
-		return this.user;
-	}
-	
-	/**
-	* @return difficulty
-	*/
-	public Difficulty getDifficulty()
-	{
-		return this.difficulty;
-	}
-	
-	/**
-	* @return time
-	*/
-	public long getTimeOfGame()
-	{
-		//for now return end time... need to check this
-		return this.endTime;
-	}
-	
-	/**
-	* @return numOfMoves
-	*/
-	public int getNumOfMoves()
-	{
-		return this.numOfMoves;
-	}
-	
-	
     /**
-	 * import the board file into the array for manipulation
-	 * to play the game
+	 * arg constructor for the Board class
      *
 	 * <hr>
-	 * Date created: April 13, 2020
+	 * Date created: April 20, 2020
+     * 
+     * <hr>
+     * @param difficulty the desired difficulty of the board
 	 */
-    public void importBoard()
+    public Board(Difficulty difficulty)
     {
-		File inputFile = new File(boardFilePath);
-		Scanner inputRead = null;
-		try
-		{
-			inputRead = new Scanner(inputFile);
-		}
-		catch(Exception e)
-		{
-			System.out.println("Error reading file: " + e.getMessage());
-		}
-		
-		while(inputRead.hasNext())
-		{
-			//hold current line
-			String str = inputRead.nextLine();
-			String[] fields = str.split("\\|"); //split line into fields
-			int p;
-			
-			//initialize the Piece[][]
-			for (int r=0; r < 9; r++)
-			{
-				for (int c=0; c < 9; c++)
-				{
-					p = Integer.parseInt(fields[c]);
-					
-					//set the enum based on the int in the field
-					if(p == 0)
-						this.board[r][c] = Piece.EMPTY;
-					else if(p == 1)
-						this.board[r][c] = Piece.ONE;
-					else if(p == 2)
-						this.board[r][c] = Piece.TWO;
-					else if(p == 3)
-						this.board[r][c] = Piece.THREE;
-					else if(p == 4)
-						this.board[r][c] = Piece.FOUR;
-					else if(p == 5)
-						this.board[r][c] = Piece.FIVE;
-					else if(p == 6)
-						this.board[r][c] = Piece.SIX;
-					else if(p == 7)
-						this.board[r][c] = Piece.SEVEN;
-					else if(p == 8)
-						this.board[r][c] = Piece.EIGHT;
-					else if(p == 9)
-						this.board[r][c] = Piece.NINE;
-				}
-				
-			}
-		}
-        
-		
-    } // END: importBoard() method
-	
-	/**
-	* determine the board to import and set the path
-	* 
-	* <hr>
-	* Date created: April 21, 2020
-	*
-	* @param difficulty
-	*/
-	public void getBoardToUse(Difficulty difficulty)
-	{
-		// based on the difficulty chosen, get a random board of that level
-		//and initialize it to board[][]
-		int rand = rnd.nextInt(10);
-		switch (difficulty)
-		{
-			case EASY:
-			{
-				switch(rand)
-				{
-					case 0:
-						boardFilePath = "easy1.txt";
-						break;
-					case 1:
-						boardFilePath = "easy2.txt";
-						break;
-					case 2:
-						boardFilePath = "easy3.txt";
-						break;
-					case 3:
-						boardFilePath = "easy4.txt";
-						break;
-					case 4:
-						boardFilePath = "easy5.txt";
-						break;
-					case 5:
-						boardFilePath = "easy6.txt";
-						break;
-					case 6:
-						boardFilePath = "easy7.txt";
-						break;
-					case 7:
-						boardFilePath = "easy8.txt";
-						break;
-					case 8:
-						boardFilePath = "easy9.txt";
-						break;
-					case 9:
-						boardFilePath = "easy10.txt";
-						break;
-				}
-				break;
-			}
-			case MEDIUM:
-			{
-				switch(rand)
-				{
-					case 0:
-						boardFilePath = "medium1.txt";
-						break;
-					case 1:
-						boardFilePath = "medium2.txt";
-						break;
-					case 2:
-						boardFilePath = "medium3.txt";
-						break;
-					case 3:
-						boardFilePath = "medium4.txt";
-						break;
-					case 4:
-						boardFilePath = "medium5.txt";
-						break;
-					case 5:
-						boardFilePath = "medium6.txt";
-						break;
-					case 6:
-						boardFilePath = "medium7.txt";
-						break;
-					case 7:
-						boardFilePath = "medium8.txt";
-						break;
-					case 8:
-						boardFilePath = "medium9.txt";
-						break;
-					case 9:
-						boardFilePath = "medium10.txt";
-						break;
-				}
-				break;
-			}
-			case HARD:
-			{
-				switch(rand)
-				{
-					case 0:
-						boardFilePath = "hard1.txt";
-						break;
-					case 1:
-						boardFilePath = "hard2.txt";
-						break;
-					case 2:
-						boardFilePath = "hard3.txt";
-						break;
-					case 3:
-						boardFilePath = "hard4.txt";
-						break;
-					case 4:
-						boardFilePath = "hard5.txt";
-						break;
-					case 5:
-						boardFilePath = "hard6.txt";
-						break;
-					case 6:
-						boardFilePath = "hard7.txt";
-						break;
-					case 7:
-						boardFilePath = "hard8.txt";
-						break;
-					case 8:
-						boardFilePath = "hard9.txt";
-						break;
-					case 9:
-						boardFilePath = "hard10.txt";
-						break;
-				}
-				break;
-			}
-			case EXTREME:
-			{
-				switch(rand)
-				{
-					case 0:
-						boardFilePath = "extreme1.txt";
-						break;
-					case 1:
-						boardFilePath = "extreme2.txt";
-						break;
-					case 2:
-						boardFilePath = "extreme3.txt";
-						break;
-					case 3:
-						boardFilePath = "extreme4.txt";
-						break;
-					case 4:
-						boardFilePath = "extreme5.txt";
-						break;
-					case 5:
-						boardFilePath = "extreme6.txt";
-						break;
-					case 6:
-						boardFilePath = "extreme7.txt";
-						break;
-					case 7:
-						boardFilePath = "extreme8.txt";
-						break;
-					case 8:
-						boardFilePath = "extreme9.txt";
-						break;
-					case 9:
-						boardFilePath = "extreme10.txt";
-						break;
-				}
-				break;
-			}
-			case UNBEATABLE:
-				boardFilePath = "imossibleBoard.txt";
-				break;
-			
-			
-			
-		}
-		
-	}// end getBoardToUse()
-	
+        // initialize the global variables
+        this.startDate = Calendar.getInstance().getTime();
+        this.endDate = null;
+        this.difficulty = difficulty;
+        this.rnd = new Random();
+        board = new Element[81];
+        this.user = null;
+        this.complete = false;
+        this.numOfMoves = 0;
+        this.score = 0;
+
+        // build the board
+        buildBoard();
+	} // END: Board() arg constructor
+
     /**
-	 * TODO FINISH DOCUMENTATION
+	 * construct the Element[] that will be used
+     * to represent the 81 individual elements of
+     * a standard Sudoku board. This array could
+     * be implemented with two dimensions but
+     * that would complicate our code when we
+     * visualize the board in JFrame on a
+     * grid layout.
+     *
+	 * <hr>
+	 * Date created: April 20, 2020
+	 */
+    private void buildBoard()
+    {
+        /*
+         * generate a number 1 - 10 that will be used to
+         * determine which board to import
+         */
+        int index = (this.difficulty.equals(Difficulty.UNBEATABLE)) ? 1 : rnd.nextInt(11);
+        
+        // import the empty board (aka board to be solved)
+        char[] emptyBoard = new char[81];
+        importBoard(emptyBoard, index, false);
+
+        // import the answer to the empty board
+        char[] answerBoard = new char[81];
+        importBoard(answerBoard, index, true);
+
+        /*
+         * loop through all 81 characters; creating each element and adding it
+         * to the Element[] board
+         */ 
+        for(int i = 0; i < 81; i++)
+        {
+            // create each element of the board
+            this.board[i] = new Element(emptyBoard[i], answerBoard[i]);
+        } // END: looping through all elements
+    } // END: buildBoard() method
+
+    /**
+     * import a the board to solve
+     *
+     * <hr>
+     * Date created: April 13, 2020
+     * 
+     * <hr>
+     * @param index specify which specific board to import, 1 through 10
+     * @param answer specifies whether to import the answer board
+     */
+    private char[] importBoard(char[] tmp, int index, boolean answer)
+    {
+        /*
+         * 'type' will be used to differentiate between the solution and
+         * the normal board; if 'answer' = true, type = "answer";
+         * otherwise it will be an empty string
+         */
+        String type = (answer == true) ? "answer" : "";
+        
+        /*
+         * this String specifies the difficulty of the board
+         * to import; the difficultyToString() method will
+         * be used to convert the difficulty into the
+         * appropriate string
+         */
+        String diff = difficultyToString(difficulty);
+        
+        /*
+         * this String specifies the directory where the txt files
+         * containing the board information is held
+         */
+        String dir = "boards/";
+        
+        // create the path to the txt file
+        String path = dir + diff + index + type + ".txt";
+
+        /*
+         * attempt to import the desired board
+         */
+        try
+        {
+            // create a new File object from our path
+            File file = new File(path);
+
+            // create a Scanner object for our path
+            Scanner fileReader = new Scanner(file);
+
+            int i = 0; // iterator to keep track of the index in tmp array
+
+            // loop until all information has been read
+            while (fileReader.hasNextLine())
+            {
+                /*
+                 * get the data from a given line in the file
+                 */
+                String[] data = fileReader.nextLine().split("\\|");
+
+                /*
+                 * loop through every piece of data in the data
+                 * array so we can convert it to a char and add
+                 * it to the temporary array
+                 */
+                for (String n : data)
+                {
+                    // add the element to the tmp array
+                    tmp[i] = n.charAt(0);
+
+                    // iterate the counter
+                    i++;
+                } // END: looping through all data in a given line
+            } // END: reading from file
+          
+            // close the Scanner object
+            fileReader.close();
+
+            // return the array
+            return tmp;
+        } // END: try
+        catch (FileNotFoundException e)
+        {
+            // display an error prompt to the CMD line
+            System.out.println("An unexpected error occurred while importing\n"
+                             + "the Sudoku board. Make sure SudokuWars\n"
+                             + "doesn't have any missing files.");
+            
+            // output the stack trace as well
+            e.printStackTrace();
+
+            // terminate the program
+            System.exit(0);
+        } // END: catch
+
+        // return the array
+        return tmp;
+    } // END: importBoard() method
+
+    /**
+     * convert the argued difficulty to a String that
+     * can be used to import a file
+     *
+     * <hr>
+     * Date created: April 20, 2020
+     */
+    private String difficultyToString(Difficulty difficulty)
+    {
+        /*
+         * use an if-statement to account for difficulty variation
+         */ 
+        // assuming the desired difficulty = easy
+        if (this.difficulty.equals(Difficulty.EASY))
+        {
+            // return the appropriate String to access the file
+            return "easy";
+        } // END: easy
+
+        // assuming the desired difficulty = medium
+        else if (this.difficulty.equals(Difficulty.MEDIUM))
+        {
+            // return the appropriate String to access the file
+            return "medium";
+        } // END: medium
+
+        // assuming the desired difficulty = hard
+        else if (this.difficulty.equals(Difficulty.HARD))
+        {
+            // return the appropriate String to access the file
+            return "hard";
+        } // END: hard
+
+        // assuming the desired difficulty = expert
+        else if (this.difficulty.equals(Difficulty.EXPERT))
+        {
+            // return the appropriate String to access the file
+            return "extreme";
+        } // END: expert
+
+        // assuming the desired difficulty = unbeatable
+        else if (this.difficulty.equals(Difficulty.UNBEATABLE))
+        {
+            // return the appropriate String to access the file
+            return "unbeatable";
+        } // END: unbeatable
+
+        // default
+        else
+        {
+            // prompt the user of the error
+            System.out.println("An unexpected error has occurred");
+
+            // terminate the program
+            System.exit(0);
+
+            return null; // added to remove errors from compiler
+        } // END: default
+    } // END: difficultyToString() method
+
+    /**
+	 * return a boolean attribute that specifies if a
+     * given move is possible
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -374,18 +286,6 @@ public class Board
     {
         // TODO FINISH IMPLEMENTATION
     } // END: submitMove() method
-
-    /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public String displayBoard(String move)
-    {
-        // TODO FINISH IMPLEMENTATION
-        return ""; //! change later
-    } // END: displayBoard() method
 
     /**
 	 * TODO FINISH DOCUMENTATION
@@ -464,17 +364,6 @@ public class Board
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
-    private void submitScore()
-    {
-        // TODO FINISH IMPLEMENTATION
-    } // END: submitScore() method
-
-    /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
     private void startTime()
     {
         // TODO FINISH IMPLEMENTATION
@@ -492,13 +381,15 @@ public class Board
     } // END: calculatePlayTime() method
 
     /**
-	 * TODO FINISH DOCUMENTATION
+	 * return the current value of the element at the
+     * argued index
      *
 	 * <hr>
-	 * Date created: April 13, 2020
+	 * Date created: April 21, 2020
 	 */
-    private void setPausedTime()
+    public char getElementValue(int index) 
     {
-
-    } // END: setPausedTime()
+        // return the value of the element at the argued index
+		return board[index].getValue();
+	} // END: getElementValue() method
 } // END: Board class
