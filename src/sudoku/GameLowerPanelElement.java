@@ -126,8 +126,8 @@ public class GameLowerPanelElement extends GamePanelElement
             }
             else // user selects anything else
             {
-                // roll the outro
-                outro();
+                // ask them if they would like to play again
+                playAgain();
             } // END: if
         } // END: if
     } // END: isGameOver() method
@@ -180,6 +180,17 @@ public class GameLowerPanelElement extends GamePanelElement
         // add the game to the leaderboard
         game.addToLeaderboard();
 
+        playAgain();
+    } // END: addToLeaderBoard
+
+    /**
+	 * use JOptionPane to ask the user if they would like to play again
+     *
+	 * <hr>
+	 * Date created: April 20, 2020
+	 */
+    private void playAgain()
+    {
         // ask the user if they would like to play again
         int result = JOptionPane.showConfirmDialog(
                             window,
@@ -198,5 +209,5 @@ public class GameLowerPanelElement extends GamePanelElement
                 // roll the outro
                 outro();
             } // END: if
-    } // END: addToLeaderBoard
+    }
 } // END: GameLowerPanelElement class

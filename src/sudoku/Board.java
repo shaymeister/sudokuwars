@@ -505,7 +505,7 @@ public class Board
 	 */
     public boolean isGameOver()
     {
-        boolean flag;
+        boolean flag = true;
 
         // loop through every element and see if it is complete
         for (int i = 0; i < 81; i++)
@@ -514,9 +514,6 @@ public class Board
             // if any element is incorrect, the board isn't complete
             if (!board[i].isCorrect()) flag = false;
         }
-
-        // assuming the board is complete
-        flag = true;
 
         /*
          * if the game is over, calculate the play time
