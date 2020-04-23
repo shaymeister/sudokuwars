@@ -15,6 +15,7 @@ package sudoku;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
+import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -43,11 +44,15 @@ public class GameLowerPanel extends JPanel
 	 */
     public GameLowerPanel(Settings settings, Sudoku game, JFrame window)
     {
+        // implement a grid layout to manage the buttons
         this.setLayout(new GridLayout(1,9));
 
+        // make the panel transparent
         this.setOpaque(false);
 
+        // improve visuals my setting the preferred dimensions and a border
         this.setPreferredSize(new Dimension(600, 67));
+        this.setBorder(BorderFactory.createEmptyBorder(0, 50, 25, 50));
 
         char[] values = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
 

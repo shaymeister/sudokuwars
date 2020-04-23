@@ -79,6 +79,9 @@ public class Board
 		this.numOfMoves = moves;
 	}
 	
+	public Board(String strUser, Difficulty diff) {
+	}
+
 	/**
 	* @return difficulty 
 	*/
@@ -114,10 +117,11 @@ public class Board
 	/**
 	* @return numOfMoves
 	*/
-	public int getMoves();
+	public int getMoves()
 	{
 		return this.numOfMoves;
 	}
+
 
     /**
 	 * construct the Element[] that will be used

@@ -12,7 +12,11 @@
 
 package sudoku;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * create a JButton class that will represent each
@@ -43,5 +47,47 @@ public class GameLowerPanelElement extends GamePanelElement
     {
         // call the super constructor
         super(game, settings, value, window);
+
+        // add the listener
+        this.addActionListener(new ButtonActionListener());
     } // END: GameLowerPanelElement() arg constructor
+
+    /**
+     * listen if the user clicks the button
+     *
+     * <hr>
+     * Date created: April 22, 2020
+     * Last modified: April 22, 2020
+     * <hr>
+     * @author Shay Snyder
+     */
+    private class ButtonActionListener implements ActionListener
+    {
+        /**
+	     * listen if the user clicks the button
+         *
+	     * <hr>
+	     * Date created: April 22, 2020
+	     */
+        public void actionPerformed(ActionEvent e)
+        {
+            // submit the desired value to the game
+            if(game.submitMove(value))
+            {
+                // Use JOptionPane to display the move's unsuccessful submission
+                JOptionPane.showMessageDialog(window,
+                                              "Your move was successful!",
+                                              "SudokuWars",
+                                              JOptionPane.INFORMATION_MESSAGE);
+            } // END: move valid
+            else
+            {
+                // Use JOptionPane to display the move's unsuccessful submission
+                JOptionPane.showMessageDialog(window,
+                                              "Your move was invalid. Please try again.",
+                                              "SudokuWars",
+                                              JOptionPane.WARNING_MESSAGE);
+            } // END: move invalid
+        } // END: actionPerformed()
+    } // END: ButtonActionListener class
 } // END: GameLowerPanelElement class

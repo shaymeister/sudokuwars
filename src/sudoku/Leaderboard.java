@@ -247,7 +247,7 @@ public class Leaderboard
 	*/
     public ArrayList<Board> searchByDifficulty(Difficulty diff)
     {
-        ArrayList<Board> diffBoard;
+        ArrayList<Board> diffBoard = new ArrayList<Board>();
 		Difficulty difficult;
 		Board board;
 		for(int counter=0;counter<leaderboard.size();counter++)
