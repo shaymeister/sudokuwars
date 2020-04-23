@@ -484,12 +484,15 @@ public class Board
 	 */
     public boolean setDesiredElement(int index)
     {
+        // iterate the number of moves
+        this.numOfMoves++;
+
         // check if the desired element is already correct
         if (!this.board[index].isCorrect())
         {
             // set the desired element
             this.desiredElement = index;
-            
+
             // return true
             return true;
         }

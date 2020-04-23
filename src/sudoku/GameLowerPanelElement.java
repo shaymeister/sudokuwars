@@ -143,7 +143,7 @@ public class GameLowerPanelElement extends GamePanelElement
     {
         // Thank the user
         JOptionPane.showMessageDialog(
-                        null,
+                        window,
                         "Thank you for playing SudokuWars!",
                         settings.getTitle(),
                         JOptionPane.INFORMATION_MESSAGE);
@@ -202,7 +202,7 @@ public class GameLowerPanelElement extends GamePanelElement
             if (result == JOptionPane.YES_OPTION)
             {
                 // start a new game
-                window.add(new GamePanel(window, settings));
+                new GamePanel(window, settings);
             }
             else // user selects anything else
             {

@@ -145,7 +145,7 @@ public class GamePanel extends JPanel
          * board they would like to play
          */
         int choice = JOptionPane.showOptionDialog(
-                        null, // no main component
+                        this.window, // no main component
                         "What difficulty board would you like to play?", // prompt
                         settings.getTitle(), // title
                         JOptionPane.YES_NO_OPTION, // option type
@@ -154,16 +154,17 @@ public class GamePanel extends JPanel
                         options, // user's options
                         "easy"); // default option
                         
-        /* This switch is used to manage the various outputs from the
-        * aforementioned JOptionPane showOptionDialog box.
-        * 
-        * 0 = the user selected 'easy'
-        * 1 = the user selected 'medium'
-        * 2 = the user selected 'hard'
-        * 3 = the user selected 'extreme'
-        * 4 = the user selected 'unbeatable'
-        * Default: 'easy'
-        */
+        /*
+         * This switch is used to manage the various outputs from the
+         * aforementioned JOptionPane showOptionDialog box.
+         * 
+         * 0 = the user selected 'easy'
+         * 1 = the user selected 'medium'
+         * 2 = the user selected 'hard'
+         * 3 = the user selected 'extreme'
+         * 4 = the user selected 'unbeatable'
+         * Default: 'easy'
+         */
         switch (choice)
         {
             // assuming user selects 'easy'
