@@ -40,6 +40,7 @@ public class LeaderboardMenuItem extends JMenuItem
     // global variables
     private JFrame window; // to hold the game's main frame
     private Settings settings; // to hold the game's settings
+    private Sudoku game; // to hold the game itself
 
     /**
 	 * arg constructor for the LeaderboardMenuItem class
@@ -47,11 +48,12 @@ public class LeaderboardMenuItem extends JMenuItem
 	 * <hr>
 	 * Date created: April 20, 2020
 	 */
-    public LeaderboardMenuItem(JFrame window, Settings settings)
+    public LeaderboardMenuItem(JFrame window, Settings settings, Sudoku game)
     {
         // set the global variables from the argued values
         this.window = window;
         this.settings = settings;
+        this.game = game;
             
         // initialize the JMenuItem
         new JMenuItem();
@@ -104,7 +106,7 @@ public class LeaderboardMenuItem extends JMenuItem
         public void actionPerformed(ActionEvent e)
         {
             // show the leaderboard pane
-            new LeaderboardPanel(window, settings);
+            new LeaderboardPanel(window, settings, game);
         } // END: actionPerformed() method
     } // END: LeaderboardActionListener class
 } // END: LeaderboardMenuItem class

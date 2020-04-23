@@ -13,7 +13,6 @@
 package sudoku;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  * visualize data and information in a JPanel that informs the player
@@ -25,13 +24,8 @@ import javax.swing.JPanel;
  * <hr>
  * @author Shay Snyder
  */
-public class HelpPanel extends JPanel
+public class HelpPanel
 {
-	/**
-     * randomly generated
-     */
-    private static final long serialVersionUID = -1145161862803980909L;
-
     /**
 	 * arg constructor for the HelpPanel class
      *

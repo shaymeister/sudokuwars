@@ -36,7 +36,9 @@ public class Sudoku
     public Sudoku(Difficulty difficulty)
     {
         // create a board of the desired difficulty
-        board = new Board(difficulty);
+        this.board = new Board(difficulty);
+        this.leaderboard = new Leaderboard();
+
 	} // END: Sudoku() arg constructor
 
     /**
@@ -47,8 +49,41 @@ public class Sudoku
 	 */
     public String showLeaderboard()
     {
-        return null; //! change later
+        // return the string representation of the leaderboard
+        return this.leaderboard.toString();
     } // END: showLeaderboard() method
+
+    /**
+	 * allow the user to choose how to sort the leaderboard
+     *
+	 * <hr>
+	 * Date created: April 13, 2020
+	 */
+    public void sortLeaderboard(int i)
+    {
+        /*
+         * i = 0 : sort by difficulty
+         * i = 1 : sort by player
+         * i = 2 : sort by time
+         */
+        switch (i)
+        {
+            // sort by difficulty
+            case 0:
+                this.leaderboard.sortByDifficulty();
+                break;
+
+            // sort by player
+            case 1:
+                this.leaderboard.sortByPlayer();
+                break;
+
+            // sort by time
+            case 2:
+                this.leaderboard.sortByTime();
+                break;
+        } // END: switch
+    } // END: sortLeaderboard() method
 
     /**
 	 * submit the index of the desired element to submit a value; 
@@ -78,17 +113,6 @@ public class Sudoku
          */
         return this.board.setDesiredValue(value);
     } // END: submitMove() method
-
-    /**
-	 * allow the user to choose how to sort the leaderboard
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public void sortLeaderboard()
-    {
-
-    } // END: sortLeaderboard() method
 
     /**
 	 * return the game's current board

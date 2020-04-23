@@ -87,9 +87,6 @@ public class IntroLowerPanel extends JPanel
         @Override
         public void actionPerformed(ActionEvent e)
         {   
-            // add the menubar to the main frame
-            window.add(new MenuBar(window, settings));
-
             // start a new game
             new GamePanel(window, settings);
         } // END: actionPerformed() method

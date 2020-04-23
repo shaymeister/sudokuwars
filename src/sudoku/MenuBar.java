@@ -37,12 +37,12 @@ public class MenuBar extends JMenuBar
      * <hr>
      * Date created: April 13, 2020
      */
-    public MenuBar(JFrame window, Settings settings)
+    public MenuBar(JFrame window, Settings settings, Sudoku game)
     {
         // initialize the menubar
         new JMenuBar();
         
         // add the game menu to the JMenuBar
-        this.add(new GameMenu(window, settings));
+        this.add(new GameMenu(window, settings, game));
     } // END: MenuBar() arg-constructor
 } // END: MenuBar class

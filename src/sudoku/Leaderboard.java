@@ -25,7 +25,6 @@ import javax.swing.*;
  * Date created: April 13, 2020
  * Last modified: April 22, 2020
  * <hr>
- * @author Shay Snyder
  * @author Holden Dalton 
  */
 public class Leaderboard
@@ -47,7 +46,7 @@ public class Leaderboard
 		
 		try 
 		{
-			File leaderText = new File("leaderboard.txt");
+			File leaderText = new File("boards/leaderboard.txt");
 			Scanner input = null;
 			
 			if(leaderText.exists())
@@ -287,7 +286,7 @@ public class Leaderboard
 	   
 	   try 
 	   {
-		   printWriter = new PrintWriter("leaderboard.txt");
+		   printWriter = new PrintWriter("boards/leaderboard.txt");
 		   for(int counter=0;counter<leaderboard.size();counter++)
 		   {
 			   Board board = leaderboard.get(counter);
@@ -311,5 +310,46 @@ public class Leaderboard
 		{
 			JOptionPane.showMessageDialog(null,"Error in saving the leaderboard","Sudoku",JOptionPane.ERROR_MESSAGE);
 		}
-    } // END: export() method
+	} // END: export() method
+	
+
+	public String toString()
+	{
+		// will hold all leaderboard information
+		StringBuilder string = new StringBuilder();
+
+		for(int i = 0; i < leaderboard.size(); i++)
+		{
+			string.append("-------------------------------------------------------------------------\n"
+						+ "Game at index : " + i + "\n"
+						+ "Player: " + leaderboard.get(i).getUser() + "\n"
+						+ "Difficulty: " + leaderboard.get(i).getDifficulty() + "\n"
+						+ "Total Time (Min): " + leaderboard.get(i).getMinutes() + "\n"
+						+ "Total Time (Sec): " + leaderboard.get(i).getSeconds() + "\n"
+						+ "Num of Moves: " + leaderboard.get(i).getMoves() + "\n"
+						+ "-------------------------------------------------------------------------\n");
+		}
+
+		return string.toString();
+	}
+
+	public String toString(ArrayList<Board> boards)
+	{
+		// will hold all leaderboard information
+		StringBuilder string = new StringBuilder();
+
+		for(int i = 0; i < boards.size(); i++)
+		{
+			string.append("-------------------------------------------------------------------------\n"
+						+ "Game at index : " + i + "\n"
+						+ "Player: " + boards.get(i).getUser() + "\n"
+						+ "Difficulty: " + boards.get(i).getDifficulty() + "\n"
+						+ "Total Time (Min): " + boards.get(i).getMinutes() + "\n"
+						+ "Total Time (Sec): " + boards.get(i).getSeconds() + "\n"
+						+ "Num of Moves: " + boards.get(i).getMoves() + "\n"
+						+ "-------------------------------------------------------------------------\n");
+		}
+
+		return string.toString();
+	}
 } // END: Leaderboard class

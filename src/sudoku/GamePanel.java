@@ -57,14 +57,14 @@ public class GamePanel extends JPanel
         this.window.getContentPane().removeAll();
         this.window.setContentPane(new BgPanel());
 
-        // add the menubar to the game frame
-        this.window.setJMenuBar(new MenuBar(this.window, this.settings));
-
         // ask the user what difficulty board they would like to play
         Difficulty difficulty = getDesiredDifficulty();
 
         // start the SudokuGame with the argued difficulty
         this.game = new Sudoku(difficulty); // start the sudoku game
+
+        // add the menubar to the game frame
+        this.window.setJMenuBar(new MenuBar(this.window, this.settings, this.game));
 
         // make this panel transparent
         this.setOpaque(false);
@@ -101,7 +101,7 @@ public class GamePanel extends JPanel
         this.window.setContentPane(new BgPanel());
         
         // add the menubar to the game frame
-        this.window.setJMenuBar(new MenuBar(this.window, this.settings));
+        this.window.setJMenuBar(new MenuBar(this.window, this.settings, this.game));
         
         // make this panel transparent
         this.setOpaque(false);

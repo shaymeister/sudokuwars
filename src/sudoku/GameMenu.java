@@ -38,7 +38,7 @@ public class GameMenu extends JMenu
      * <hr>
      * Date created: April 20, 2020
      */
-    public GameMenu(JFrame window, Settings settings)
+    public GameMenu(JFrame window, Settings settings, Sudoku game)
     {
         // instantiate the game menu
         new JMenu();
@@ -53,7 +53,7 @@ public class GameMenu extends JMenu
         this.addSeparator();
 
         // add the leaderboard menu item
-        this.add(new LeaderboardMenuItem(window, settings));
+        this.add(new LeaderboardMenuItem(window, settings, game));
 
         // add a separator
         this.addSeparator();
