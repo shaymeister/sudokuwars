@@ -14,7 +14,9 @@
 
 package sudoku;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,16 +31,25 @@ import javax.swing.JOptionPane;
  * @author Holden Dalton 
  * @author Hannah Taylor 
  */
-public class HelpPanel
+public class HelpPanel extends JDialog
 {
-    /**
-	 * arg constructor for the HelpPanel class
-     *
-	 * <hr>
-	 * Date created: April 20, 2020
-	 */
+  /**
+   * randomly generated
+   */
+  private static final long serialVersionUID = -1145161862803980909L;
+
+  /**
+   * arg constructor for the HelpPanel class
+   *
+   * <hr>
+   * Date created: April 20, 2020
+   */
     public HelpPanel(JFrame window, Settings settings)
     {
+        new JDialog();
+
+        this.setTitle("SudokuWars: Help");
+
         // this string will hold all instructions
         String instructions = "How to interact with SudokuWars:\n"
       + "1) Touch an empty slot... 2) Then touch a tile to place it on the slot\n"
@@ -47,12 +58,7 @@ public class HelpPanel
       + "The sum of all numbers in any nonet, row, or column must be equal to 45.\n"
       + "The goal of the game is fill all spaces while abiding by these rules.\n"
       + "\n'Good luck young padawan' - Master Yoda";
-        
-
-        // Use JOptionPane to show the instructions to the user
-        JOptionPane.showMessageDialog(window,
-                                      instructions,
-                                      "SudokuWars: Help",
-                                      JOptionPane.INFORMATION_MESSAGE);
+      
+        this.add(new JLabel(instructions));
 	} // END: HelpPanel() arg constructor
 } // END: HelpPanel class
