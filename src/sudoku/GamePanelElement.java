@@ -76,5 +76,4 @@ public class GamePanelElement extends JButton
     {
         this.setIcon(new ImageIcon(settings.getPathGridElementIcon(value)));
     } // END: setIcon() method
-
 } // END: GamePanelElement class

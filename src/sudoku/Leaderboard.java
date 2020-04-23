@@ -32,7 +32,6 @@ public class Leaderboard
 {
     // global variable
     private ArrayList<Board> leaderboard; // to hold all previous boards
-    private String initialPath; // to hold the initial path of the leaderboard
 
     /**
 	*Purpose: constructor for the leaderboard 

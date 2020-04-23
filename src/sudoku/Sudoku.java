@@ -12,8 +12,6 @@
 
 package sudoku;
 
-import java.util.Random;
-
 /**
  * represent and control the actual game
  *
@@ -41,18 +39,6 @@ public class Sudoku
         board = new Board(difficulty);
 	} // END: Sudoku() arg constructor
 
-	/**
-	 * return a String visualization of the playing surface
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public String showBoard()
-    {
-        // TODO Finish Implementation
-        return null; //! change later
-    } // END: showBoard() method
-
     /**
 	 * return a String visualization of the leaderboard
      *
@@ -61,7 +47,6 @@ public class Sudoku
 	 */
     public String showLeaderboard()
     {
-        // todo finish implementation
         return null; //! change later
     } // END: showLeaderboard() method
 
@@ -75,8 +60,7 @@ public class Sudoku
 	 */
     public boolean setDesiredElement(int index)
     {
-        Random rnd = new Random();
-        return rnd.nextBoolean();
+        return this.board.setDesiredElement(index);
     } // END: setDesiredMove() method
 
     /**
@@ -86,11 +70,13 @@ public class Sudoku
 	 * <hr>
 	 * Date created: April 13, 2020
 	 */
-    public boolean submitMove(char value)
+    public boolean setDesiredValue(char value)
     {
-        // todo finish implementation
-        Random rnd = new Random();
-        return rnd.nextBoolean(); //! change later
+        /*
+         * return the boolean attribute that represents the
+         * status of setting the desired value method
+         */
+        return this.board.setDesiredValue(value);
     } // END: submitMove() method
 
     /**
@@ -126,5 +112,42 @@ public class Sudoku
     {
         // return the current value of the element at the argued index
 		return this.board.getElementValue(index);
-	} // END: getElementValue() method
+    } // END: getElementValue() method
+    
+    /**
+	 * return the a boolean attribute that specifies the
+     * completion status of the game
+     *
+	 * <hr>
+	 * Date created: April 21, 2020
+	 */
+    public boolean isGameOver()
+    {
+        // return the completion status
+        return this.board.isGameOver();
+    } // END: isGameOver() method
+
+    /**
+	 * set the player's name to the argued value
+     *
+	 * <hr>
+	 * Date created: April 23, 2020
+	 */
+    public void setName(String name)
+    {
+        // set the player's name to the argued value
+        this.board.setName(name);
+    } // END: setName() method
+
+    /**
+	 * add the board to the leaderboard
+     *
+	 * <hr>
+	 * Date created: April 23, 2020
+	 */
+    public void addToLeaderboard()
+    {
+        // add the board to the leaderboard
+        this.leaderboard.addToList(this.board);
+    } // END: addToLeaderboard() method
 } // END: Sudoku class

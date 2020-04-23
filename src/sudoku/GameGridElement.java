@@ -55,6 +55,7 @@ public class GameGridElement extends GamePanelElement
         this.window = window;
         this.index = index;
 
+        // add the action listener
         this.addActionListener(new ButtonActionListener());
     } // END: GridElement() arg-constructor
 

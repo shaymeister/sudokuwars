@@ -72,13 +72,19 @@ public class GameLowerPanelElement extends GamePanelElement
         public void actionPerformed(ActionEvent e)
         {
             // submit the desired value to the game
-            if(game.submitMove(value))
+            if(game.setDesiredValue(value))
             {
                 // Use JOptionPane to display the move's unsuccessful submission
                 JOptionPane.showMessageDialog(window,
                                               "Your move was successful!",
                                               "SudokuWars",
                                               JOptionPane.INFORMATION_MESSAGE);
+
+                // determine if the game is over
+                isGameOver();
+
+                // regenerate the main screen with the updated data
+                window.add(new GamePanel(window, settings, game));
             } // END: move valid
             else
             {
@@ -90,4 +96,107 @@ public class GameLowerPanelElement extends GamePanelElement
             } // END: move invalid
         } // END: actionPerformed()
     } // END: ButtonActionListener class
+
+    /**
+     * determine if the game is over
+     *
+     * <hr>
+     * Date created: April 23, 2020
+     * Last modified: April 23, 2020
+     * <hr>
+     * @author Shay Snyder
+     */
+    private void isGameOver()
+    {
+        if (game.isGameOver())
+        {
+            int result = JOptionPane.showConfirmDialog(
+                            window,
+                            "Congratulations, you have completed the board!\n"
+                           +"Would you like to add this board to the\n"
+                           +"leaderboard?",
+                           "SudokuWars",
+                           JOptionPane.YES_NO_OPTION);
+
+            // if the user selects 'yes'
+            if (result == JOptionPane.YES_OPTION)
+            {
+                // call add to leaderboard
+                addToLeaderBoard();
+            }
+            else // user selects anything else
+            {
+                // roll the outro
+                outro();
+            } // END: if
+        } // END: if
+    } // END: isGameOver() method
+
+    /**
+	 * use JOptionPane to thank the user for
+     * playing SudokuWars
+     *
+	 * <hr>
+	 * Date created: April 20, 2020
+	 */
+    private void outro()
+    {
+        // Thank the user
+        JOptionPane.showMessageDialog(
+                        null,
+                        "Thank you for playing SudokuWars!",
+                        settings.getTitle(),
+                        JOptionPane.INFORMATION_MESSAGE);
+
+        // terminate the program
+        System.exit(0);
+    } // END: outro() method
+
+    /**
+	 * use JOptionPane to all the user to enter their name to the board
+     *
+	 * <hr>
+	 * Date created: April 20, 2020
+	 */
+    private void addToLeaderBoard()
+    {
+        String name = JOptionPane.showInputDialog(window,
+                            "What is your name?",
+                            "SudokuWars",
+                            JOptionPane.QUESTION_MESSAGE);
+
+        // catch any errors that may arise
+        if (name != null)
+        {
+            // set the player's name
+            game.setName(name);
+        } // END: if name != null
+        else
+        {
+            // set the player's name
+            game.setName("Jane Doe");
+        } // END: if name == null
+
+        // add the game to the leaderboard
+        game.addToLeaderboard();
+
+        // ask the user if they would like to play again
+        int result = JOptionPane.showConfirmDialog(
+                            window,
+                            "Would you like to play another game?",
+                            "SudokuWars",
+                            JOptionPane.YES_NO_OPTION);
+
+            // if the user selects 'yes'
+            if (result == JOptionPane.YES_OPTION)
+            {
+                // start a new game
+                window.add(new GamePanel(window, settings));
+            }
+            else // user selects anything else
+            {
+                // roll the outro
+                outro();
+            } // END: if
+    } // END: addToLeaderBoard
 } // END: GameLowerPanelElement class

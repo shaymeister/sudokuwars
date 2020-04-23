@@ -38,9 +38,8 @@ public class Board
     private Element[] board;
     private Random rnd;
     private String user;
-    private boolean complete;
     private int numOfMoves;
-    private int score;
+    private int desiredElement;
 	private long minutes;
 	private long seconds;
 
@@ -62,9 +61,7 @@ public class Board
         this.rnd = new Random();
         board = new Element[81];
         this.user = null;
-        this.complete = false;
         this.numOfMoves = 0;
-        this.score = 0;
 
         // build the board
         buildBoard();
@@ -73,7 +70,7 @@ public class Board
 	public Board(String strUser,Difficulty diff,long mins,long sec,int moves)
 	{
 		this.startDate = Calendar.getInstance().getTime();
-		this.user = user;
+		this.user = strUser;
 		this.difficulty = diff;
 		this.minutes = mins;
 		this.seconds = sec;
@@ -320,33 +317,6 @@ public class Board
     } // END: difficultyToString() method
 
     /**
-	 * return a boolean attribute that specifies if a
-     * given move is possible
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public boolean isMoveAvailable(String move)
-    {
-        // TODO FINISH IMPLEMENTATION
-        return false; // remove later
-    } // END: isMoveAvailable() method
-
-    /**
-	 * TODO FINISH DOCUMENTATION
-     *
-	 * <hr>
-	 * Date created: April 13, 2020
-	 */
-    public void submitMove(String move)
-    {
-        // TODO FINISH IMPLEMENTATION
-		
-		
-		
-    } // END: submitMove() method
-
-    /**
 	 * compare player names
      *
 	 * <hr>
@@ -357,7 +327,7 @@ public class Board
     public int comparePlayer(Board otherBoard)
     {
         // compare String user with compareTo method
-        return user.compareTo(otherBoard.getUser);
+        return user.compareTo(otherBoard.getUser());
     } // END: comparePlayer() method
 
     /**
@@ -371,7 +341,7 @@ public class Board
     public int compareDifficulty(Board otherBoard)
     {
         // compare two difficulty objects
-        return difficulty.compareTo(otherBoard.getDifficulty);
+        return difficulty.compareTo(otherBoard.getDifficulty());
     } // END: compareDifficulty() method
 
     /**
@@ -425,7 +395,7 @@ public class Board
 		else if (numOfMoves > otherBoard.getMoves())
 			n = 1;
 		
-        return n; //! change later
+        return n;
     } // END: compareMoves() method
 
     
@@ -445,7 +415,7 @@ public class Board
     } // END: startTime() method
 
     /**
-	 * TODO FINISH DOCUMENTATION
+	 * calculate the total amount of play time
      *
 	 * <hr>
 	 * Date created: April 13, 2020
@@ -457,9 +427,8 @@ public class Board
 		
 		this.minutes = diff / (60*1000) % 60;
 		this.seconds = diff / 1000%60;
-		
-		
     } // END: calculatePlayTime() method
+
 
     /**
 	 * return the current value of the element at the
@@ -473,4 +442,104 @@ public class Board
         // return the value of the element at the argued index
 		return board[index].getValue();
 	} // END: getElementValue() method
+
+    /**
+	 * return the boolean attribute that specifies if the 
+     * desired value was valid
+     *
+	 * <hr>
+	 * Date created: April 23, 2020
+	 */
+    public boolean setDesiredValue(char value)
+    {
+        // if the user has selected an element, submit the value
+        if (this.desiredElement != -1)
+        {
+            // copy the desired element to a temp variable
+            int tmpDesiredElement = desiredElement;
+
+            // clear the stored value
+            this.desiredElement = -1;
+            
+            // return the status of the move submission
+            return board[tmpDesiredElement].submitValue(value);
+        } // END: submission
+        else
+        {
+            // default to return false
+            return false;
+        }
+    } // END: setDesiredValue() method
+    
+    /**
+	 * return the boolean attribute that specifies if the 
+     * desired element is available
+     *
+	 * <hr>
+	 * Date created: April 23, 2020
+	 */
+    public boolean setDesiredElement(int index)
+    {
+        // check if the desired element is already correct
+        if (!this.board[index].isCorrect())
+        {
+            // set the desired element
+            this.desiredElement = index;
+            
+            // return true
+            return true;
+        }
+        else
+        {
+            // return false
+            return false;
+        }
+    } // END: setDesiredElement() method
+
+    /**
+	 * return the boolean attribute that specifies if given
+     * board is complete
+     *
+	 * <hr>
+	 * Date created: April 23, 2020
+	 */
+    public boolean isGameOver()
+    {
+        boolean flag;
+
+        // loop through every element and see if it is complete
+        for (int i = 0; i < 81; i++)
+        {
+            
+            // if any element is incorrect, the board isn't complete
+            if (!board[i].isCorrect()) flag = false;
+        }
+
+        // assuming the board is complete
+        flag = true;
+
+        /*
+         * if the game is over, calculate the play time
+         */
+        if (flag == true)
+        {
+            endTime();
+            calculatePlayTime();
+        }
+        
+        // return the flag
+		return flag;
+    } // END: isGameOver() method
+    
+    /**
+	 * set the user's name to the argued value
+     *
+	 * <hr>
+	 * Date created: April 23, 2020
+	 */
+    public void setName (String name)
+    {
+        // set the user's name to the argued value
+        this.user = name;
+    } // END: setName() method
 } // END: Board class
