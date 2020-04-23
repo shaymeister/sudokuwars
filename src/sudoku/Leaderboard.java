@@ -96,6 +96,7 @@ public class Leaderboard
 	public void addToList(Board board)
 	{
 		this.leaderboard.add(board);
+		export();
 	}
 
 
