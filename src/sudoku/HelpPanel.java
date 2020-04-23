@@ -14,10 +14,12 @@
 
 package sudoku;
 
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 /**
  * visualize data and information in a JPanel that informs the player
@@ -46,9 +48,11 @@ public class HelpPanel extends JDialog
    */
     public HelpPanel(JFrame window, Settings settings)
     {
+        // initialize the JDialog
         new JDialog();
 
-        this.setTitle("SudokuWars: Help");
+        // set the dialogs title
+        this.setTitle("Instructions");
 
         // this string will hold all instructions
         String instructions = "How to interact with SudokuWars:\n"
@@ -59,6 +63,25 @@ public class HelpPanel extends JDialog
       + "The goal of the game is fill all spaces while abiding by these rules.\n"
       + "\n'Good luck young padawan' - Master Yoda";
       
-        this.add(new JLabel(instructions));
+        // set the dialogs size
+        this.setSize(500, 500);
+
+        // create a text area to hold the instructions
+        JTextArea help = new JTextArea(instructions, 50, 50);
+
+        // don't allow editing on the text area
+        help.setEditable(false);
+        
+        // add the text area
+        this.add(help);
+
+        // set the icon
+        this.setIconImage(new ImageIcon(settings.getPathIconImage()).getImage());
+        
+        // center the dialog
+        this.setLocationRelativeTo(window);
+
+        // make it visible
+        this.setVisible(true);
 	} // END: HelpPanel() arg constructor
 } // END: HelpPanel class
