@@ -13,6 +13,7 @@
 package sudoku;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * visualize data and information in a JPanel that informs the player
@@ -34,6 +35,20 @@ public class HelpPanel
 	 */
     public HelpPanel(JFrame window, Settings settings)
     {
-        // TODO Finish Implementation
+        // this string will hold all instructions
+        String instructions = "How to interact with SudokuWars:\n"
+      + "1) Touch an empty slot... 2) Then touch a tile to place it on the slot\n"
+      + "\nMore detailed instructions from:\n"
+      + "Each row, column, and nonet can contain a number 1-9 exactly once.\n"
+      + "The sum of all numbers in any nonet, row, or column must be equal to 45.\n"
+      + "The goal of the game is fill all spaces while abiding by these rules.\n"
+      + "\n'Good luck young padawan' - Master Yoda";
+        
+
+        // Use JOptionPane to show the instructions to the user
+        JOptionPane.showMessageDialog(window,
+                                      instructions,
+                                      "SudokuWars: Help",
+                                      JOptionPane.INFORMATION_MESSAGE);
 	} // END: HelpPanel() arg constructor
 } // END: HelpPanel class
