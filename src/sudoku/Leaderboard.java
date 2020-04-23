@@ -4,6 +4,8 @@
  * Project name: SudokuWars
  * ---------------------------------------------------------------------------
  * Creator's name and email: Shay Snyder, snyderse2@etsu.edu
+ *							 Holden Dalton, daltonh@etsu.edu
+ *							 Hannah Taylor, taylorhm1@mail.etsu.edu
  *
  * Course:  CSCI 1260-288
  * Creation Date: April 13, 2020
@@ -25,7 +27,9 @@ import javax.swing.*;
  * Date created: April 13, 2020
  * Last modified: April 22, 2020
  * <hr>
+ * @author Shay Snyder 
  * @author Holden Dalton 
+ * @author Hannah Taylor 
  */
 public class Leaderboard
 {
@@ -312,7 +316,14 @@ public class Leaderboard
 		}
 	} // END: export() method
 	
-
+	/**
+	*Purpose: convert to string method 
+	*
+	*Date created: 04/23/2020
+	*
+	*@param none 
+	*@return string.toString() 
+	*/
 	public String toString()
 	{
 		// will hold all leaderboard information
@@ -333,6 +344,14 @@ public class Leaderboard
 		return string.toString();
 	}
 
+	/**
+	*Purpose: to string method 
+	*
+	*Date created: 04/23/2020
+	*
+	*@param boards - array list of game boards 
+	*@return string.toString() 
+	*/
 	public String toString(ArrayList<Board> boards)
 	{
 		// will hold all leaderboard information
