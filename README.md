@@ -22,10 +22,10 @@ class. CSCI 1260.
 
 To compile and run SudokuWars, run the following commands:
 
-'''
+```
 javac -d bin src/sudoku/*.java
 java -cp bin sudoku.SudokuDriver
-'''
+```
 
 ---
 
