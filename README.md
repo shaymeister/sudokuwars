@@ -13,8 +13,8 @@ class. CSCI 1260.
 
 ## Images
 
-![Intro Screen](images/intro_screen.png)
-![Game Screen](images/game_screen.png)
+<img src="images/intro_screen.png" height = "332" width = "332">
+<img src="images/game_screen.png" height = "332" width = "332">
 
 ---
 
